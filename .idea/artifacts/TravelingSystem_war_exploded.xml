@@ -10,8 +10,9 @@
         <element id="directory" name="lib">
           <element id="library" level="project" name="Hibernate 5.2.16-5.2.16" />
           <element id="library" level="project" name="Spring-4.3.16.RELEASE" />
-          <element id="library" level="application" name="Spring MVC-4.3.16.RELEASE" />
           <element id="library" level="project" name="JSTL" />
+          <element id="library" level="project" name="Java EE 6-Java EE 6" />
+          <element id="library" level="project" name="Spring MVC-4.3.16.RELEASE" />
         </element>
       </element>
     </root>
