@@ -39,10 +39,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Hibernate 5.2.16-5.2.16" level="project" />
-    <orderEntry type="library" name="Spring-4.3.16.RELEASE" level="project" />
-    <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="JSTL" level="project" />
-    <orderEntry type="library" name="Spring MVC-4.3.16.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Hibernate 5.2.16-5.2.16" level="project" />
+    <orderEntry type="library" exported="" name="Spring-4.3.16.RELEASE" level="project" />
+    <orderEntry type="library" exported="" name="Java EE 6-Java EE 6" level="project" />
+    <orderEntry type="library" exported="" name="JSTL" level="project" />
+    <orderEntry type="library" name="spring-web-4.3.16.RELEASE" level="project" />
   </component>
 </module>

@@ -12,13 +12,14 @@
         <property name="mappings">
             <props>
                 <prop key="index.htm">indexController</prop>
+                <prop key="HotelPage.htm">HotelPageController</prop>
             </props>
         </property>
     </bean>
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
-          p:prefix="/WEB-INF/jsp/"
+          p:prefix="/WEB-INF/jsp/Nick/"
           p:suffix=".jsp"/>
 
     <!--
@@ -27,4 +28,7 @@
     <bean name="indexController"
           class="org.springframework.web.servlet.mvc.ParameterizableViewController"
           p:viewName="index"/>
+    <bean name="HotelPageController"
+          class="org.springframework.web.servlet.mvc.ParameterizableViewController"
+          p:viewName="HotelPage"/>
 </beans>
