@@ -20,6 +20,6 @@
         </tr>
     </table>
         <input type="text" placeholder="" style="border-color: aqua; width: 50%;height: 8%;font-size: 25px;position: absolute;left:20%;top:15%"/>
-        <input type="submit" value="Search" style="background: aqua;border-color:aqua;color: darkgrey;font-size:25px;width: 13%;height: 8%;position: absolute;left:60%;top:15%"/>
+        <input type="submit" value="Search" style="background: aqua;border-color:aqua;color: darkgrey;font-size:25px;width: 13%;height: 8%;position: absolute;left:70%;top:15%"/>
 </body>
 </html>

@@ -8,8 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <meta charset="utf-8">
     <title>HotelPage</title>
-    <link rel="stylesheet"  type="text/css"  href="css/Nick/HotelPage.css"/>
+    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>css/Nick/HotelPage.css"/>
+    <script src="../../../js/Nick/laydate.js"></script>
     <script type="text/javascript">
         function login() {
             $.ajax({
@@ -30,9 +32,17 @@
                 }
             });
         }
+        lay('#version').html('-v'+ laydate.v);
+        laydate.render({
+            elem: '#test1-1'
+            ,lang: 'en'
+        });
 
-
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
     </script>
+
 </head>
 <%
         java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(
@@ -56,52 +66,40 @@
     <div class="div1">
         <img src="image/Nick/d.jpg" width="100%" height="50%"/>
     </div>
-<div width="30%" height="100%" style="border-style: ridge;">
+<div width="200px" height="200px" style="position: absolute;left:10%;top:20%;background: darkgrey;opacity: 80%">
     <table>
         <tr>
             <td>
-                City:
-            </td>
-            <td>
-                    <form id="form1" onsubmit="return false" action="##" method="post">
-                        <select  onclick="login()" name="city">
-                            <option value="" style="font-size: 20px">Choose city</option>
-                            <option value="Qingdao" ></option>
-                            <option value="Qingdao" >Qingdao</option>
-                            <option value="2" >Jinan</option>
-                            <option value="3" >Shanghai</option>
-                            <option value="Qingdao" >Beijing</option>
-                            <option value="2" >Yantai</option>
-                            <option value="3" >Suzhou</option>
-                        </select>
-                    </form>
+                <form id="form1" onsubmit="return false" action="##" method="post">
+                    <select  onclick="login()" name="city" style="width:249px;height: 50px;font-size: 20px">
+                        <option value="">Choose city</option>
+                        <option value="Qingdao" >Qingdao</option>
+                        <option value="2" >Jinan</option>
+                        <option value="3" >Shanghai</option>
+                        <option value="Qingdao" >Beijing</option>
+                        <option value="2" >Yantai</option>
+                        <option value="3" >Suzhou</option>
+                    </select>
+                </form>
             </td>
         </tr>
         <tr>
             <td>
-                Check-in time:
-            </td>
-            <td>
-                <input type="text" placeholder="yyyy/mm/dd"/>
+                <input type="text" class="demo-input" placeholder="国际版" id="test1-1">
             </td>
         </tr>
         <tr>
             <td>
-                Check-out time:
-            </td>
-            <td>
-                <input type="text" placeholder="yyyy/mm/dd"/>
+                <input type="text" class="demo-input" placeholder="国际版" id="test1">
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" value="Book"/>
+                <input type="submit" value="Search" style="background: yellow;width:249px;height: 50px;font-size: 20px"/>
             </td>
         </tr>
     </table>
-</div></td>
-
-
+</div>
         <table width="100%" style="background: darkgrey">
             <tr>
                 <td><div>The search results are as follows:</div></td>
