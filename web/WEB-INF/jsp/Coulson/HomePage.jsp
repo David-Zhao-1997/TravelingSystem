@@ -20,6 +20,9 @@
     <link href="../../../css/Coulson/styles.css" rel="stylesheet">
     <link href="../../../css/Coulson/queries.css" rel="stylesheet">
     <link href="../../../css/Coulson/animate.css" rel="stylesheet">
+    <link href="../../../css/Coulson/login.css" rel="stylesheet"/>
+    <script type="text/javascript" src="../../../js/Coulson/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../js/Coulson/login.js"></script>
 
     <%--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>--%>
     <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
@@ -64,11 +67,122 @@
             </div>
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    <a href="" class="learn-more-btn">Start journey</a>
+                    <a href="javascript:" class="learn-more-btn">Start journey</a>
                 </div>
             </div>
         </div>
     </section>
+    <div class="login-container">
+        <ul class="login-switcher">
+            <li class="login-li">
+                <a class="login-a" href="#">Log In</a>
+            </li>
+            <li class="signup-li">
+                <a class="signup-a" href="#">Sign Up</a>
+            </li>
+        </ul>
+
+        <!-- 登录表单 -->
+        <div id="login">
+            <form action="">
+                <div>
+                    <label class="login-phoneno-label"
+                                   for="login-phoneno">E-mail</label>
+                    <input type="text" class="login-phoneno-input" id="login-phoneno" autofocus>
+                        <%--<f:ajax render="login-message1" event="keyup"/>--%>
+                    </input>
+                    <%--<h:message id="login-message1" for="login-phoneno"--%>
+                               <%--styleClass="login-phoneno-message"/>--%>
+                </div>
+                <br/>
+
+                <div>
+                    <label class="login-password-label"
+                                   for="login-password">Password</label>
+                    <input type="password" class="login-password-input" id="login-password"/>
+                    <%--<h:message id="login-message2" for="login-password"/>--%>
+                </div>
+                <br/>
+
+                <div>
+                    <%--<input type="checkbox" class="login-remember-checkbox" id="login-remember">--%>
+                        <%--&lt;%&ndash;<f:ajax execute="login-remember" render="login_remember_text" event="change"/>&ndash;%&gt;--%>
+                    <%--</input>--%>
+                    <%--<label class="login-remember-label"--%>
+                                   <%--for="login-remember">Remember me</label>--%>
+                    <input type="submit" id="login-button" class="button-login" value="LOG IN" onclick="remember()"/>
+                </div>
+                <br/>
+
+            </form>
+            <%--<h:outputText style="display: none" id="login_error" value="#{login_Signup.error1}"/>--%>
+            <%--<h:outputText style="display: none" id="login_null_error"--%>
+                          <%--value="#{login_Signup.login_null_error}"/>--%>
+            <%--<h:outputText style="display: none" id="login_remember_text"--%>
+                          <%--value="#{login_Signup.remember}"/>--%>
+            <%--<h:outputText style="display: none" id="login_success"--%>
+                          <%--value="#{authentication.hiddeninput}"/>--%>
+        </div>
+
+        <!-- 注册表单 -->
+        <div id="signup">
+            <form action="">
+                <%--<h:message for="signup-phoneno" id="signup-message-phoneno"--%>
+                           <%--styleClass="signup-phoneno-message"/>--%>
+                <%--<h:message for="signup-email" id="signup-message-email"--%>
+                           <%--styleClass="signup-email-message"/>--%>
+                <%--<h:panelGrid columns="2" cellspacing="30px" styleClass="signup-form">--%>
+
+                    <div>
+                        <label class="signup-phoneno-label"
+                               for="signup-phoneno">E-mail</label>
+                        <input type="text" class="signup-phoneno-input" id="signup-phoneno" autofocus>
+                        <%--<!--<f:ajax event="keyup" render="signup-message-phoneno"/>-->--%>
+                        </input>
+                    </div>
+                    <div>
+                        <label class="signup-email-label"
+                               for="signup-email">UserName</label>
+                        <input type="text" class="signup-email-input" id="signup-email">
+                        <%--<!--<f:ajax event="keyup" render="signup-message-email"/>-->--%>
+                        </input>
+                    </div>
+                    <div>
+                        <label class="signup-password-label"
+                               for="signup-password">Password</label>
+                        <input type="password" class="signup-password-input" id="signup-password"/>
+                    </div>
+
+
+
+                <%--</h:panelGrid>--%>
+
+                <div class="protocol-div">
+                    <%--<input type="checkbox" class="protocol-checkbox" id="user-protocol">--%>
+                        <%--&lt;%&ndash;<f:ajax execute="user-protocol" render="signup-button agree-text"&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;event="change"&ndash;%&gt;--%>
+                                <%--&lt;%&ndash;listener="#{ajaxBean.buttonvalue}"/>&ndash;%&gt;--%>
+                    <%--</input>--%>
+                    <%--<label class="signup-protocol-label" for="user-protocol">I agree <a--%>
+                            <%--href="#"--%>
+                            <%--style="color: white">User protocol</a>--%>
+                    <%--</label>--%>
+                    <input type="submit" id="signup-button" class="button-signup"
+                                     value="SIGN UP"/>
+                    <%--<h:outputText style="display: none" id="agree-text" value="#{ajaxBean.agree}"/>--%>
+                </div>
+                <br/>
+            </form>
+            <%--<h:outputText style="display: none" id="agree-text" value="#{ajaxBean.agree}"/>--%>
+            <%--<h:outputText style="display: none" id="signup_error" value="#{login_Signup.error2}"/>--%>
+            <%--<h:outputText style="display: none" id="signup_null_error"--%>
+                          <%--value="#{login_Signup.signup_null_error}"/>--%>
+            <%--<h:outputText style="display: none" id="signup_success"--%>
+                          <%--value="#{login_Signup.signup_success}"/>--%>
+        </div>
+
+    </div>
+    <div class="login-mask"/>
 </header>
 <section class="intro text-center section-padding" id="intro">
     <div class="container">
