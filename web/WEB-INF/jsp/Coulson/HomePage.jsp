@@ -268,7 +268,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1>I got 99 Problems<span>but <em>design</em> 'aint one</span></h1>
+                <h1>I got 66 Problems<span>but <em>design</em> 'aint one</span></h1>
                 <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
             </div>
         </div>
