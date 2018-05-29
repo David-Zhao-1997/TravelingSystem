@@ -9,12 +9,12 @@
     <context:component-scan base-package="controller"/>
     <!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>-->
     <!--<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-        <!--<property name="mappings">-->
-            <!--<props>-->
-                <!--<prop key="index.htm">indexController</prop>-->
-                <!--<prop key="HomePage.htm">HomeController</prop>-->
-            <!--</props>-->
-        <!--</property>-->
+    <!--<property name="mappings">-->
+    <!--<props>-->
+    <!--<prop key="index.htm">indexController</prop>-->
+    <!--<prop key="HomePage.htm">HomeController</prop>-->
+    <!--</props>-->
+    <!--</property>-->
     <!--</bean>-->
 
     <bean id="viewResolver"
@@ -26,6 +26,6 @@
     The index controller.
     -->
     <!--<bean name="indexController"-->
-          <!--class="org.springframework.web.servlet.mvc.ParameterizableViewController"-->
-          <!--p:viewName="index"/>-->
+    <!--class="org.springframework.web.servlet.mvc.ParameterizableViewController"-->
+    <!--p:viewName="index"/>-->
 </beans>
