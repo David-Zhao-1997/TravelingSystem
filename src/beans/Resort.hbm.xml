@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="beans.Resort" catalog="TravelingSystem" schema="dbo" table="Resort">
+        <id name="resortId">
+            <column name="ResortID" sql-type="int"/>
+        </id>
+        <property name="rName">
+            <column name="RName" length="100" sql-type="varchar(100)"/>
+        </property>
+        <property name="description">
+            <column name="Description" length="1000" sql-type="varchar(1000)"/>
+        </property>
+        <property name="price">
+            <column name="Price" precision="10" scale="2" sql-type="decimal(10,2)"/>
+        </property>
+        <property name="cityId">
+            <column name="CityID" sql-type="int"/>
+        </property>
+        <property name="pictures">
+            <column name="Pictures" length="2147483647" sql-type="varchar(max)"/>
+        </property>
+        <property name="viewCount">
+            <column name="ViewCount" sql-type="int"/>
+        </property>
+    </class>
+</hibernate-mapping>
