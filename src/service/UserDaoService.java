@@ -8,7 +8,10 @@ import org.hibernate.query.Query;
 import java.util.List;
 
 import beans.User;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
+@Component
 public class UserDaoService
 {
     SessionFactory sessionFactory;
@@ -27,7 +30,8 @@ public class UserDaoService
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = " + email);
+        Query query = session.createQuery("from User where email = ?");
+        query.setString(0, email);
         User user = (User) query.uniqueResult();
         tx.commit();
         session.close();
@@ -38,7 +42,9 @@ public class UserDaoService
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = " + email + " and uPass = " + password);
+        Query query = session.createQuery("from User where email = ? and uPass = ? ");
+        query.setString(0, email);
+        query.setString(1, password);
         User user = (User) query.uniqueResult();
         tx.commit();
         session.close();

@@ -1,6 +1,7 @@
 package beans;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Basic;
@@ -14,8 +15,8 @@ public class User
     private String email;
     private String uPass;
     private String uName;
-    private int state;
-    private Timestamp dor;
+    private int state = 1;
+    private Timestamp dor = new Timestamp(System.currentTimeMillis());
 
     @Id
     @Column(name = "Email", nullable = false, length = 100)

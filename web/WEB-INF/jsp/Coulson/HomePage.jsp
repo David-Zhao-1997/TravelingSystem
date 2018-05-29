@@ -27,6 +27,8 @@
     <%--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>--%>
     <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
 
+    <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <c:url var="base" value="../../jsp/Coulson/"/>
 </head>
 <body id="top">
 <%--<div class="home-image" style="height:420px; width:100%; background-image:url(/image/HomePage/1.jpg);">--%>
@@ -84,11 +86,11 @@
 
         <!-- 登录表单 -->
         <div id="login">
-            <form action="">
+            <form method="post" action="/login.htm">
                 <div>
                     <label class="login-phoneno-label"
                                    for="login-phoneno">E-mail</label>
-                    <input type="text" class="login-phoneno-input" id="login-phoneno" autofocus>
+                    <input name="email" class="login-phoneno-input" id="login-phoneno" autofocus>
                         <%--<f:ajax render="login-message1" event="keyup"/>--%>
                     </input>
                     <%--<h:message id="login-message1" for="login-phoneno"--%>
@@ -99,7 +101,7 @@
                 <div>
                     <label class="login-password-label"
                                    for="login-password">Password</label>
-                    <input type="password" class="login-password-input" id="login-password"/>
+                    <input name="uPass" type="password" class="login-password-input" id="login-password"/>
                     <%--<h:message id="login-message2" for="login-password"/>--%>
                 </div>
                 <br/>
@@ -126,7 +128,7 @@
 
         <!-- 注册表单 -->
         <div id="signup">
-            <form action="">
+            <form method="post" action="/signup.htm">
                 <%--<h:message for="signup-phoneno" id="signup-message-phoneno"--%>
                            <%--styleClass="signup-phoneno-message"/>--%>
                 <%--<h:message for="signup-email" id="signup-message-email"--%>
@@ -134,23 +136,20 @@
                 <%--<h:panelGrid columns="2" cellspacing="30px" styleClass="signup-form">--%>
 
                     <div>
-                        <label class="signup-phoneno-label"
-                               for="signup-phoneno">E-mail</label>
-                        <input type="text" class="signup-phoneno-input" id="signup-phoneno" autofocus>
+                        <label class="signup-phoneno-label" for="signup-phoneno">E-mail</label>
+                        <input name="email" class="signup-phoneno-input" id="signup-phoneno" autofocus>
                         <%--<!--<f:ajax event="keyup" render="signup-message-phoneno"/>-->--%>
                         </input>
                     </div>
                     <div>
-                        <label class="signup-email-label"
-                               for="signup-email">UserName</label>
-                        <input type="text" class="signup-email-input" id="signup-email">
+                        <label class="signup-email-label" for="signup-email">UserName</label>
+                        <input name="uName" class="signup-email-input" id="signup-email">
                         <%--<!--<f:ajax event="keyup" render="signup-message-email"/>-->--%>
                         </input>
                     </div>
                     <div>
-                        <label class="signup-password-label"
-                               for="signup-password">Password</label>
-                        <input type="password" class="signup-password-input" id="signup-password"/>
+                        <label class="signup-password-label" for="signup-password">Password</label>
+                        <input name="uPass" type="password" class="signup-password-input" id="signup-password"/>
                     </div>
 
 
