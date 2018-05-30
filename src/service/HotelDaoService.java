@@ -139,10 +139,4 @@ public class HotelDaoService
             return null;
         }
     }
-
-//    public static void main(String[] args)
-//    {
-//        HotelDaoService hotelDaoService = (HotelDaoService) ApplicationContextUtil.applicationContext.getBean("HotelDaoService");
-//        System.out.println(hotelDaoService.getHotelListByName("2"));
-//    }
 }
