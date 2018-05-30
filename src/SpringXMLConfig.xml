@@ -20,6 +20,9 @@
     <bean class="service.UserDaoService" id="UserDaoService">
         <property name="sessionFactory" ref="mySessionFactory"/>
     </bean>
+    <bean class="service.HotelDaoService" id="HotelDaoService">
+        <property name="sessionFactory" ref="mySessionFactory"/>
+    </bean>
 
     <tx:advice id="txadvice" transaction-manager="txManager">
         <tx:attributes>

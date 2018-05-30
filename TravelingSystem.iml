@@ -5,6 +5,7 @@
       <configuration>
         <datasource-map>
           <unit-entry name="hibernate.cfg.xml" value="1ff54b0f-8bea-4d68-91dd-7a6737e0c938" />
+          <unit-entry name="mySessionFactory" value="1ff54b0f-8bea-4d68-91dd-7a6737e0c938" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
@@ -24,6 +25,7 @@
       <configuration>
         <fileset id="web application context" name="MVC application context" removed="true">
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/SpringXMLConfig.xml</file>
         </fileset>
         <fileset id="web dispatcher servlet context" name="MVC dispatcher servlet context" removed="true">
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
@@ -31,6 +33,9 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
+        </fileset>
+        <fileset id="fileset2" name="SpringXMLConfig" removed="false">
+          <file>file://$MODULE_DIR$/src/SpringXMLConfig.xml</file>
         </fileset>
       </configuration>
     </facet>
