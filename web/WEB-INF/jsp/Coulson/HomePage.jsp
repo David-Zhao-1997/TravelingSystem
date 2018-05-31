@@ -21,16 +21,47 @@
     <link href="../../../css/Coulson/queries.css" rel="stylesheet">
     <link href="../../../css/Coulson/animate.css" rel="stylesheet">
     <link href="../../../css/Coulson/login.css" rel="stylesheet"/>
+    <link href="../../../css/Coulson/pickout.css" rel="stylesheet">
     <script type="text/javascript" src="../../../js/Coulson/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../../../js/Coulson/login.js"></script>
-
-    <%--<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>--%>
-    <%--<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>--%>
+    <script type="text/javascript" src="../../../js/Coulson/pickout.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fs7e5ypI0ghzGLY03EHCHoaGIopqxpOb"></script>
 
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <c:url var="base" value="../../jsp/Coulson/"/>
+
+    <script>
+        //初始化页面时执行
+        function loading()
+        {
+            var storage = window.localStorage;
+            var $email_input_login = $('#login-phoneno');
+            var $email_input_signup = $('#signup-phoneno');
+
+            $email_input_login.val(storage.getItem("email"));
+            $email_input_signup.val(storage.getItem("email"));
+
+            user_position();
+        }
+        //点击登陆按钮后执行
+        function remember1()
+        {
+            var $email_input_login = $('#login-phoneno').val();
+            var storage = window.localStorage;
+
+            storage.setItem("email", $email_input_login);
+        }
+        //点击注册按钮后执行
+        function remember2()
+        {
+            var $email_input_signup = $('#signup-phoneno').val();
+            var storage = window.localStorage;
+
+            storage.setItem("email", $email_input_signup);
+        }
+    </script>
 </head>
-<body id="top">
+<body id="top" onload="loading()">
 <%--<div class="home-image" style="height:420px; width:100%; background-image:url(/image/HomePage/1.jpg);">--%>
 <%--</div>--%>
 
@@ -70,10 +101,24 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <a href="javascript:" class="learn-more-btn">Start journey</a>
+                    <input type="button" class="login-open" value="<c:out value='${login_name}'/>"/>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="form-group">
+        <%--<label for="city">城市:</label>--%>
+        <select name="city" id="city" class="city pickout" placeholder="CHOOSE YOUR CITY">
+            <option id="user_location" value="userLoc">CITY</option>
+            <option value="bj">Beijing</option>
+            <option value="sh">Shanghai</option>
+            <option value="qd">Qingdao</option>
+            <option value="hz">Hangzhou</option>
+            <option value="gz">Guangzhou</option>
+        </select>
+    </div>
+
     <div class="login-container">
         <ul class="login-switcher">
             <li class="login-li">
@@ -112,18 +157,15 @@
                     <%--</input>--%>
                     <%--<label class="login-remember-label"--%>
                                    <%--for="login-remember">Remember me</label>--%>
-                    <input type="submit" id="login-button" class="button-login" value="LOG IN" onclick="remember()"/>
+                    <input type="submit" id="login-button" class="button-login" value="LOG IN" onclick="remember1()"/>
                 </div>
                 <br/>
 
             </form>
-            <%--<h:outputText style="display: none" id="login_error" value="#{login_Signup.error1}"/>--%>
-            <%--<h:outputText style="display: none" id="login_null_error"--%>
-                          <%--value="#{login_Signup.login_null_error}"/>--%>
-            <%--<h:outputText style="display: none" id="login_remember_text"--%>
-                          <%--value="#{login_Signup.remember}"/>--%>
-            <%--<h:outputText style="display: none" id="login_success"--%>
-                          <%--value="#{authentication.hiddeninput}"/>--%>
+            <%--<input type="hidden" id="login_error" value="#{login_Signup.error1}"/>--%>
+            <input type="hidden" id="login_error" value="<c:out value='${login_error}'/>"/>
+            <%--<input type="hidden" id="login_remember_text" value="#{login_Signup.remember}"/>--%>
+            <input type="hidden" id="login_success" value="<c:out value='${login_success}'/>"/>
         </div>
 
         <!-- 注册表单 -->
@@ -166,18 +208,16 @@
                             <%--href="#"--%>
                             <%--style="color: white">User protocol</a>--%>
                     <%--</label>--%>
-                    <input type="submit" id="signup-button" class="button-signup"
-                                     value="SIGN UP"/>
+                    <input type="submit" id="signup-button" class="button-signup" value="SIGN UP" onclick="remember2()"/>
                     <%--<h:outputText style="display: none" id="agree-text" value="#{ajaxBean.agree}"/>--%>
                 </div>
                 <br/>
             </form>
             <%--<h:outputText style="display: none" id="agree-text" value="#{ajaxBean.agree}"/>--%>
-            <%--<h:outputText style="display: none" id="signup_error" value="#{login_Signup.error2}"/>--%>
+            <input type="hidden" id="signup_error" value="<c:out value='${signup_error}'/>"/>
             <%--<h:outputText style="display: none" id="signup_null_error"--%>
                           <%--value="#{login_Signup.signup_null_error}"/>--%>
-            <%--<h:outputText style="display: none" id="signup_success"--%>
-                          <%--value="#{login_Signup.signup_success}"/>--%>
+            <input type="hidden" id="signup_success" value="<c:out value='${signup_success}'/>"/>
         </div>
 
     </div>
@@ -531,9 +571,38 @@
         </div>
     </div>
 </footer>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<%--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>--%>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
+
+<script>
+    pickout.to({
+        el:'.city',
+        theme: 'dark',
+        search: true
+    });
+
+    pickout.updated('.city');
+
+    function user_position(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position){
+                var longitude = position.coords.longitude;
+                var latitude = position.coords.latitude;
+                console.log(longitude);
+                console.log(latitude);
+                var gc = new BMap.Geocoder();
+
+                var pointAdd = new BMap.Point(longitude, latitude);
+                gc.getLocation(pointAdd, function(rs){
+                    var city = rs.addressComponents.city;
+                    console.log(city);
+
+                    var $location = $('.pk-option').children('span').eq(0);
+                    $location.html(city + "     (current position)");
+                });
+            });
+        }
+    }
+
+</script>
 <script src="../../../js/Coulson/waypoints.min.js"></script>
 <script src="../../../js/Coulson/bootstrap.min.js"></script>
 <script src="../../../js/Coulson/scripts.js"></script>

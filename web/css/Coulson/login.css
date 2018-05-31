@@ -17,7 +17,7 @@
 .login-open {
 	/*background-image: url("../img/homepage/login.png");*/
 	/*background-size: 100%;*/
-	background-color: white;
+	background-color: initial;
 	text-decoration: none;
 	text-align: center;
 	line-height: 40px;
@@ -25,16 +25,16 @@
 	height: 40px;
 	border-radius: 6px;
 	position: absolute;
-	top: 2.9%;
-	right: 1%;
+	top: -257%;
+	left: -50%;
 
 	color: black;
-	font-size: 22px;
+	font-size: 17px;
 	font-weight: bold;
-
-}
-.login-open.removed {
 	display: none;
+}
+.login-open.appear {
+	display: inline-block;
 }
 .login-mask {
 	z-index: 9998;
