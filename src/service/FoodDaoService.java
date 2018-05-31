@@ -9,22 +9,23 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import beans.Hotel;
+import beans.City;
+import beans.Food;
 
 @SuppressWarnings("ALL")
 @Component
-public class HotelDaoService
+public class FoodDaoService
 {
     @Autowired
     SessionFactory sessionFactory;
 
-    public boolean saveHotel(Hotel hotel)
+    public boolean saveFood(Food food)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.save(hotel);
+            session.save(food);
             tx.commit();
             session.close();
             return true;
@@ -36,13 +37,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean updateHotel(Hotel hotel)
+    public boolean updateFood(Food food)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.update(hotel);
+            session.update(food);
             tx.commit();
             session.close();
             return true;
@@ -54,13 +55,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean deleteHotel(Hotel hotel)
+    public boolean deleteFood(Food food)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.delete(hotel);
+            session.delete(food);
             tx.commit();
             session.close();
             return true;
@@ -72,18 +73,18 @@ public class HotelDaoService
         }
     }
 
-    public Hotel getHotelByID(int id)
+    public Food getFoodByID(int id)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where hotelId = ?");
+            Query query = session.createQuery("from Food where foodId = ?");
             query.setInteger(0, id);
-            Hotel hotel = (Hotel) query.uniqueResult();
+            Food food = (Food) query.uniqueResult();
             tx.commit();
             session.close();
-            return hotel;
+            return food;
         }
         catch (Exception e)
         {
@@ -92,18 +93,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelByCityID(int cityId)
+    public List<Food> getFoodByCityID(int foodId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where cityId = ?");
-            query.setInteger(0, cityId);
-            List hotelList = query.list();
+            Query query = session.createQuery("from Food where cityId = ?");
+            query.setInteger(0, foodId);
+            List foodList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return foodList;
         }
         catch (Exception e)
         {
@@ -112,18 +113,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListByName(String hotelName)
+    public List<Food> getFoodListByName(String foodName)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where hName like ?");
-            query.setString(0, "%" + hotelName + "%");
-            List hotelList = query.list();
+            Query query = session.createQuery("from Food where fName like ?");
+            query.setString(0, "%" + foodName + "%");
+            List foodList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return foodList;
         }
         catch (Exception e)
         {
@@ -132,13 +133,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean increaseViewCount(int hotelID)
+    public boolean increaseViewCount(int foodID)
     {
         try
         {
-            Hotel hotel = getHotelByID(hotelID);
-            hotel.setViewCount(hotel.getViewCount() + 1);
-            updateHotel(hotel);
+            Food food = getFoodByID(foodID);
+            food.setViewCount(food.getViewCount() + 1);
+            updateFood(food);
             return true;
         }
         catch (Exception e)
@@ -148,17 +149,17 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListOrderedByViewCount()
+    public List<City> getFoodListOrderedByViewCount()
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel order by viewCount");
-            List hotelList = query.list();
+            Query query = session.createQuery("from Food order by viewCount");
+            List foodList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return foodList;
         }
         catch (Exception e)
         {
@@ -167,18 +168,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListByCityOrderedByViewCount(int cityId)
+    public List<City> getFoodListByCityOrderedByViewCount(int cityId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where cityId = ? order by viewCount");
+            Query query = session.createQuery("from Food where cityId = ? order by viewCount");
             query.setInteger(0, cityId);
-            List hotelList = query.list();
+            List foodList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return foodList;
         }
         catch (Exception e)
         {

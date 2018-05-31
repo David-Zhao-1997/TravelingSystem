@@ -4,8 +4,8 @@
     <facet type="hibernate" name="Hibernate">
       <configuration>
         <datasource-map>
-          <unit-entry name="hibernate.cfg.xml" value="1ff54b0f-8bea-4d68-91dd-7a6737e0c938" />
-          <unit-entry name="mySessionFactory" value="dataSource" />
+          <unit-entry name="hibernate.cfg.xml" value="8716b538-5e7a-4b5d-bc31-5ef856d8b8fa" />
+          <unit-entry name="mySessionFactory" value="8716b538-5e7a-4b5d-bc31-5ef856d8b8fa" />
         </datasource-map>
         <naming-strategy-map />
         <deploymentDescriptor name="hibernate.cfg.xml" url="file://$MODULE_DIR$/src/hibernate.cfg.xml" />
@@ -34,9 +34,28 @@
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
         </fileset>
-        <fileset id="fileset2" name="SpringXMLConfig" removed="false">
-          <file>file://$MODULE_DIR$/src/SpringXMLConfig.xml</file>
-        </fileset>
+      </configuration>
+    </facet>
+    <facet type="JRebel" name="JRebel">
+      <configuration>
+        <option name="deleteUnindexed" value="false" />
+        <option name="httpAuthEnabled" value="false" />
+        <option name="httpPassword" />
+        <option name="httpUsername" />
+        <option name="ideModuleStorage">
+          <map>
+            <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
+            <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
+            <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
+          </map>
+        </option>
+        <option name="manualXML" value="false" />
+        <option name="masterModuleName" />
+        <option name="overrideStandardXmlFolder" value="false" />
+        <option name="remotingEnabled" value="false" />
+        <option name="secure" value="true" />
+        <option name="url" />
+        <option name="xmlDir" />
       </configuration>
     </facet>
   </component>

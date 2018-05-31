@@ -11,5 +11,8 @@
         <property name="cName">
             <column name="CName" length="100" sql-type="varchar(100)"/>
         </property>
+        <property name="viewCount">
+            <column name="viewCount" not-null="true" sql-type="int"/>
+        </property>
     </class>
 </hibernate-mapping>

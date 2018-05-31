@@ -12,6 +12,7 @@ public class City
 {
     private int cityId;
     private String cName;
+    private Integer viewCount;
 
     @Id
     @Column(name = "CityID", nullable = false)
@@ -37,6 +38,18 @@ public class City
         this.cName = cName;
     }
 
+    @Basic
+    @Column(name = "viewCount", nullable = true)
+    public Integer getViewCount()
+    {
+        return viewCount;
+    }
+
+    public void setViewCount(Integer viewCount)
+    {
+        this.viewCount = viewCount;
+    }
+
     @Override
     public boolean equals(Object o)
     {
@@ -44,22 +57,14 @@ public class City
         if (o == null || getClass() != o.getClass()) return false;
         City city = (City) o;
         return cityId == city.cityId &&
-                Objects.equals(cName, city.cName);
+                Objects.equals(cName, city.cName) &&
+                Objects.equals(viewCount, city.viewCount);
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(cityId, cName);
-    }
-
-    @Override
-    public String toString()
-    {
-        return "City{" +
-                "cityId=" + cityId +
-                ", cName='" + cName + '\'' +
-                '}';
+        return Objects.hash(cityId, cName, viewCount);
     }
 }

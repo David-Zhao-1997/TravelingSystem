@@ -7,49 +7,35 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
-import beans.User;
+import beans.Manager;
 
 @SuppressWarnings("ALL")
 @Component
-public class UserDaoService
+public class ManagerDaoService
 {
     @Autowired
     SessionFactory sessionFactory;
 
-    public boolean isUserExist(String email)
+    public Manager validateUser(int mid, String password)
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = ?");
-        query.setString(0, email);
-        User user = (User) query.uniqueResult();
-        tx.commit();
-        session.close();
-        return user != null;
-    }
-
-    public User validateUser(String email, String password)
-    {
-        Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = ? and uPass = ? ");
-        query.setString(0, email);
+        Query query = session.createQuery("from Manager where mid = ? and mPass = ? ");
+        query.setInteger(0, mid);
         query.setString(1, password);
-        User user = (User) query.uniqueResult();
+        Manager manager = (Manager) query.uniqueResult();
         tx.commit();
         session.close();
-        return user;
+        return manager;
     }
 
-    public boolean saveUser(User user)
+    public boolean saveManager(Manager manager)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.save(user);
+            session.save(manager);
             tx.commit();
             session.close();
             return true;
@@ -61,13 +47,13 @@ public class UserDaoService
         }
     }
 
-    public boolean deleteUser(User user)
+    public boolean deleteManager(Manager manager)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.delete(user);
+            session.delete(manager);
             tx.commit();
             session.close();
             return true;
@@ -79,13 +65,13 @@ public class UserDaoService
         }
     }
 
-    public boolean updateUser(User user)
+    public boolean updateManager(Manager manager)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.update(user);
+            session.update(manager);
             tx.commit();
             session.close();
             return true;
@@ -95,16 +81,5 @@ public class UserDaoService
             e.printStackTrace();
             return false;
         }
-    }
-
-    public void test()
-    {
-        Session session = sessionFactory.openSession();
-        Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User");
-        List list = query.list();
-        tx.commit();
-        System.out.println(list);
-        session.close();
     }
 }

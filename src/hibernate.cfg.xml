@@ -4,10 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:jtds:sqlserver://123.206.204.252:1433</property>
+        <property name="connection.url">jdbc:jtds:sqlserver://139.199.27.20:1433</property>
         <property name="connection.driver_class">net.sourceforge.jtds.jdbc.Driver</property>
         <property name="connection.username">david</property>
-        <property name="connection.password">qaz13047409865</property>
+        <property name="connection.password">xiaoguai520.</property>
         <property name="show_sql">true</property>
         <mapping resource="beans/City.hbm.xml"/>
         <mapping class="beans.City"/>

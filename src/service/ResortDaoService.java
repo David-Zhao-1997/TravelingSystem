@@ -9,22 +9,22 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import beans.Hotel;
+import beans.Resort;
 
 @SuppressWarnings("ALL")
 @Component
-public class HotelDaoService
+public class ResortDaoService
 {
     @Autowired
     SessionFactory sessionFactory;
 
-    public boolean saveHotel(Hotel hotel)
+    public boolean saveResort(Resort resort)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.save(hotel);
+            session.save(resort);
             tx.commit();
             session.close();
             return true;
@@ -36,13 +36,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean updateHotel(Hotel hotel)
+    public boolean updateResort(Resort resort)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.update(hotel);
+            session.update(resort);
             tx.commit();
             session.close();
             return true;
@@ -54,13 +54,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean deleteHotel(Hotel hotel)
+    public boolean deleteResort(Resort resort)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.delete(hotel);
+            session.delete(resort);
             tx.commit();
             session.close();
             return true;
@@ -72,18 +72,18 @@ public class HotelDaoService
         }
     }
 
-    public Hotel getHotelByID(int id)
+    public Resort getResortByID(int id)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where hotelId = ?");
+            Query query = session.createQuery("from Resort where resortId = ?");
             query.setInteger(0, id);
-            Hotel hotel = (Hotel) query.uniqueResult();
+            Resort resort = (Resort) query.uniqueResult();
             tx.commit();
             session.close();
-            return hotel;
+            return resort;
         }
         catch (Exception e)
         {
@@ -92,18 +92,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelByCityID(int cityId)
+    public List<Resort> getResortByCityID(int cityId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where cityId = ?");
+            Query query = session.createQuery("from Resort where cityId = ?");
             query.setInteger(0, cityId);
-            List hotelList = query.list();
+            List resortList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return resortList;
         }
         catch (Exception e)
         {
@@ -112,18 +112,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListByName(String hotelName)
+    public List<Resort> getResortListByName(String resortName)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where hName like ?");
-            query.setString(0, "%" + hotelName + "%");
-            List hotelList = query.list();
+            Query query = session.createQuery("from Resort where hName like ?");
+            query.setString(0, "%" + resortName + "%");
+            List resortList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return resortList;
         }
         catch (Exception e)
         {
@@ -132,13 +132,13 @@ public class HotelDaoService
         }
     }
 
-    public boolean increaseViewCount(int hotelID)
+    public boolean increaseViewCount(int resortID)
     {
         try
         {
-            Hotel hotel = getHotelByID(hotelID);
-            hotel.setViewCount(hotel.getViewCount() + 1);
-            updateHotel(hotel);
+            Resort resort = getResortByID(resortID);
+            resort.setViewCount(resort.getViewCount() + 1);
+            updateResort(resort);
             return true;
         }
         catch (Exception e)
@@ -148,17 +148,17 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListOrderedByViewCount()
+    public List<Resort> getResortListOrderedByViewCount()
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel order by viewCount");
-            List hotelList = query.list();
+            Query query = session.createQuery("from Resort order by viewCount");
+            List resortList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return resortList;
         }
         catch (Exception e)
         {
@@ -167,18 +167,18 @@ public class HotelDaoService
         }
     }
 
-    public List<Hotel> getHotelListByCityOrderedByViewCount(int cityId)
+    public List<Resort> getResortListByCityOrderedByViewCount(int cityId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where cityId = ? order by viewCount");
+            Query query = session.createQuery("from Resort where cityId = ? order by viewCount");
             query.setInteger(0, cityId);
-            List hotelList = query.list();
+            List resortList = query.list();
             tx.commit();
             session.close();
-            return hotelList;
+            return resortList;
         }
         catch (Exception e)
         {

@@ -13,7 +13,7 @@
     <title>Home Page</title>
     <link rel="shortcut icon" href="../../../image/HomePage/favicon.ico"/>
 
-    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <%--<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>--%>
     <link href="../../../css/Coulson/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="../../../css/Coulson/flexslider.css" rel="stylesheet" >
