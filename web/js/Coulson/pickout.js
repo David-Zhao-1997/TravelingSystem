@@ -276,8 +276,8 @@ var pickout = (function(){
             data:params,
             dataType:"json",
             success:function(data){
+                self.location = "HomePage.htm";
                 alert("The city you have chosen is: " + data['city']);
-                // self.location = "HomePage.htm";
             },
             error:function(data){
             	alert("error");
