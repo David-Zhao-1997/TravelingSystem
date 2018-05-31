@@ -41,7 +41,7 @@
             $email_input_login.val(storage.getItem("email"));
             $email_input_signup.val(storage.getItem("email"));
 
-            user_position();
+//            user_position();
         }
         //点击登陆按钮后执行
         function remember1()
@@ -110,12 +110,11 @@
     <div class="form-group">
         <%--<label for="city">城市:</label>--%>
         <select name="city" id="city" class="city pickout" placeholder="CHOOSE YOUR CITY">
-            <option id="user_location" value="userLoc">CITY</option>
+            <option id="user_location" value="userLoc">Your City</option>
             <option value="bj">Beijing</option>
             <option value="sh">Shanghai</option>
             <option value="qd">Qingdao</option>
             <option value="hz">Hangzhou</option>
-            <option value="gz">Guangzhou</option>
         </select>
     </div>
 
@@ -596,7 +595,7 @@
                     console.log(city);
 
                     var $location = $('.pk-option').children('span').eq(0);
-                    $location.html(city + "     (current position)");
+                    $location.html(city);
                 });
             });
         }

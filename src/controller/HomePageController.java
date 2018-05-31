@@ -4,11 +4,16 @@ import beans.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import service.UserDaoService;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @Author: LiuLou
@@ -104,6 +109,23 @@ public class HomePageController {
             System.out.println("Sign up success.");
         }
         return "Coulson/HomePage";
+    }
+    
+    /**
+    * @Description: 接收ajax传递过来的用户选择的城市
+    * @Date: 16:43 2018/5/31
+    * @Param: []
+    * @return: java.lang.String
+    **/
+    @RequestMapping("/city.htm")
+    @ResponseBody
+    public String changeCity(String city){
+        if(city.equals("青岛市")){
+            city = "Qingdao";
+        }
+        String json = "{\"city\":\"" + city + "\"}";
+        System.out.println(city);
+        return json;
     }
 }
 

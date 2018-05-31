@@ -89,7 +89,8 @@ var pickout = (function(){
 			e.preventDefault();
 			e.stopPropagation();
 
-			user_position();
+            //获取用户实时位置
+            user_position();
 			config.currentIndex = index;
 			fireModal(config);
 		}, false);
@@ -252,13 +253,37 @@ var pickout = (function(){
 
 				item.removeAttribute('selected');
 			});
-			
-			feedInput(select, txt.innerHTML);		
-			closeModal();
-		}, false);
+
+            feedInput(select, txt.innerHTML);
+            closeModal();
+            transmitCity();
+            // self.location = 'HomePage.htm';
+        }, false);
 
 		return item;
 	}
+
+	function transmitCity(){
+		var params = {};
+        //params.XX必须与Spring Mvc controller中的参数名称一致
+        //否则在controller中使用@RequestParam绑定
+        params.city = $('.pk-input').val();
+        console.log(city);
+        $.ajax({
+            async:true,
+            type: "POST",
+            url: "/city.htm",//注意路径
+            data:params,
+            dataType:"json",
+            success:function(data){
+                alert("The city you have chosen is: " + data['city']);
+                // self.location = "HomePage.htm";
+            },
+            error:function(data){
+            	alert("error");
+			}
+        });
+    }
 
 	function feedInput(select, value){
 		select.parentElement.querySelector('.pk-input').value = value;

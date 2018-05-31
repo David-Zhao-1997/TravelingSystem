@@ -5,7 +5,7 @@
 }
 .pk-input {
 	/*width:calc(100% - 16px);*/
-	width: 90px;
+	width: 100px;
 	float:left;
 	cursor:pointer;			
 	padding:8px;
