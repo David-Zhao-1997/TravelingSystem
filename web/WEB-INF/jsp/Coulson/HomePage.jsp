@@ -309,7 +309,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h1>The way you live<span>is <em>the way</em> you live</span></h1>
-                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+                <a href="#portfolio" class="down-arrow-btn"><i style="line-height: 2.5;" class="fa fa-chevron-down"></i></a>
             </div>
         </div>
     </div>
@@ -525,7 +525,7 @@
     </div>
 </section>
 <section class="dark-bg text-center section-padding contact-wrap" id="contact">
-    <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+    <a href="#top" class="up-btn"><i style="line-height: 2.8;" class="fa fa-chevron-up"></i></a>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -604,7 +604,7 @@
                     console.log(city);
 
                     var $location = $('.pk-option').children('span').eq(0);
-                    $location.html(city);
+                    $location.html(city + "           (current position)");
                 });
             });
         }

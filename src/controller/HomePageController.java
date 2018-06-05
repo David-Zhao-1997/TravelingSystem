@@ -168,7 +168,7 @@ public class HomePageController
     @ResponseBody
     public String changeCity(String city, HttpServletRequest request)
     {
-        if (city.equals("青岛市"))
+        if (city.equals("青岛市           (current position)"))
         {
             city = "Qingdao";
         }
