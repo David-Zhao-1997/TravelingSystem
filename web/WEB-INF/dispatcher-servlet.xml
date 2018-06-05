@@ -7,27 +7,13 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
 
          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
     <context:component-scan base-package="controller"/>
+
     <mvc:annotation-driven />
-    <!--<bean class="org.springframework.web.servlet.mvc.support.ControllerClassNameHandlerMapping"/>-->
-    <!--<bean id="urlMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">-->
-    <!--<property name="mappings">-->
-    <!--<props>-->
-    <!--<prop key="index.htm">indexController</prop>-->
-    <!--<prop key="HomePage.htm">HomeController</prop>-->
-    <!--</props>-->
-    <!--</property>-->
-    <!--</bean>-->
 
     <bean id="viewResolver"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp"/>
-
-    <!--
-    The index controller.
-    -->
-    <!--<bean name="indexController"-->
-    <!--class="org.springframework.web.servlet.mvc.ParameterizableViewController"-->
-    <!--p:viewName="index"/>-->
 </beans>
