@@ -55,10 +55,12 @@ public class HomePageController
     * @return: void
     **/
     private static void changeHotelInfo(List<Hotel> hotelList, ModelMap model){
-        model.addAttribute("hotel1_ID", hotelList.get(0).getHotelId());
-        model.addAttribute("hotel1_title", hotelList.get(0).gethName());
-        model.addAttribute("hotel1_picture", hotelList.get(0).getPictures());
-        model.addAttribute("hotel1_description", hotelList.get(0).getDescription());
+        for(int i=0; i<hotelList.size(); i++){
+            model.addAttribute("hotel"+(i+1)+"_ID", hotelList.get(i).getHotelId());
+            model.addAttribute("hotel"+(i+1)+"_title", hotelList.get(i).gethName());
+            model.addAttribute("hotel"+(i+1)+"_picture", hotelList.get(i).getPictures());
+            model.addAttribute("hotel"+(i+1)+"_description", hotelList.get(i).getDescription());
+        }
     }
 
     /**
@@ -134,7 +136,7 @@ public class HomePageController
 
         //若有输入值为空
         boolean nullError = false;
-        if (user.getEmail() == "" || user.getuName() == "" || user.getuPass() == "")
+        if (user.getEmail().equals("") || user.getuName().equals("") || user.getuPass().equals(""))
         {
             nullError = true;
         }

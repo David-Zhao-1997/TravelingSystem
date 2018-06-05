@@ -308,7 +308,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h1>I got 66 Problems<span>but <em>design</em> 'aint one</span></h1>
+                <h1>The way you live<span>is <em>the way</em> you live</span></h1>
                 <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
             </div>
         </div>
@@ -337,69 +337,74 @@
                         <div class="col-md-4 wp4 delay-05s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="/image/Nick/b.jpg" alt="Portfolio Item">
+                                    <img src="${hotel2_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel2_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Hearts</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel2_title}</h2>
+                            <p>${hotel2_description}</p>
                         </div>
                         <div class="col-md-4 wp4 delay-1s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-03.jpg" alt="Portfolio Item">
+                                    <img src="${hotel3_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel3_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Ideas</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel3_title}</h2>
+                            <p>${hotel3_description}</p>
                         </div>
                     </li>
                     <li>
                         <div class="col-md-4 wp4">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-01.jpg" alt="Portfolio Item">
+                                    <img src="${hotel4_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel4_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Minds</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel4_title}</h2>
+                            <p>${hotel4_description}</p>
                         </div>
                         <div class="col-md-4 wp4 delay-05s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-02.jpg" alt="Portfolio Item">
+                                    <img src="${hotel5_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel5_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Hearts</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel5_title}</h2>
+                            <p>${hotel5_description}</p>
                         </div>
                         <div class="col-md-4 wp4 delay-1s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-03.jpg" alt="Portfolio Item">
+                                    <img src="${hotel6_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel6_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Ideas</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel6_title}</h2>
+                            <p>${hotel6_description}</p>
                         </div>
                     </li>
                 </ul>
