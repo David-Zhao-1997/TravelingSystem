@@ -111,10 +111,12 @@
         <%--<label for="city">城市:</label>--%>
         <select name="city" id="city" class="city pickout" placeholder="CHOOSE YOUR CITY">
             <option id="user_location" value="userLoc">Your City</option>
-            <option value="bj">Beijing</option>
-            <option value="sh">Shanghai</option>
-            <option value="qd">Qingdao</option>
-            <option value="hz">Hangzhou</option>
+            <c:forEach items="${cityList}" var="city">
+                <option value="${city.cityId}">${city.cName}</option>
+            </c:forEach>
+            <%--<option value="sh">Shanghai</option>--%>
+            <%--<option value="qd">Qingdao</option>--%>
+            <%--<option value="hz">Hangzhou</option>--%>
         </select>
     </div>
 
@@ -321,20 +323,21 @@
                         <div class="col-md-4 wp4">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-01.jpg" alt="Portfolio Item">
+                                    <img src="${hotel1_picture}" alt="Portfolio Item">
                                     <div class="overlay">
-                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <input type="hidden" value="${hotel1_ID}">
+                                        <a href="HotelPage.htm" class="expand" onclick="hotelClicked(this)"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
                                     </div>
                                 </div>
                             </div>
-                            <h2>Creative Minds</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            <h2>${hotel1_title}</h2>
+                            <p>${hotel1_description}</p>
                         </div>
                         <div class="col-md-4 wp4 delay-05s">
                             <div class="overlay-effect effects clearfix">
                                 <div class="img">
-                                    <img src="image/HomePage/portfolio-02.jpg" alt="Portfolio Item">
+                                    <img src="/image/Nick/b.jpg" alt="Portfolio Item">
                                     <div class="overlay">
                                         <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
                                         <a class="close-overlay hidden">x</a>
@@ -580,6 +583,7 @@
 
     pickout.updated('.city');
 
+    //浏览器定位
     function user_position(){
         if(navigator.geolocation){
             navigator.geolocation.getCurrentPosition(function(position){
@@ -601,6 +605,27 @@
         }
     }
 
+    //跳转到预订酒店界面
+    function hotelClicked(e){
+        var params = {};
+        //params.XX必须与Spring Mvc controller中的参数名称一致
+        //否则在controller中使用@RequestParam绑定
+        params.hotelID = $(e).prev().val();
+//        alert(params.hotelID);
+        $.ajax({
+            async:false,
+            type: "POST",
+            url: "HotelPage.htm",//注意路径
+            data:params,
+            dataType:"json",
+            success:function(data){
+                console.log("success");
+            },
+            error:function(data){
+                console.log("error");
+            }
+        });
+    }
 </script>
 <script src="../../../js/Coulson/waypoints.min.js"></script>
 <script src="../../../js/Coulson/bootstrap.min.js"></script>

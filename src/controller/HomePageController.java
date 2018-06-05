@@ -1,5 +1,7 @@
 package controller;
 
+import beans.City;
+import beans.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -10,7 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import beans.User;
+import service.CityDaoService;
+import service.HotelDaoService;
 import service.UserDaoService;
+
+import java.util.List;
 
 /**
  * @Author: LiuLou
@@ -21,22 +27,38 @@ import service.UserDaoService;
 @Controller
 public class HomePageController
 {
-
     @Autowired
     private UserDaoService userDaoService;
+    @Autowired
+    private HotelDaoService hotelDaoService;
+    @Autowired
+    private CityDaoService cityDaoService;
 
     /**
-     * @Description: 初始化登录注册状态
+     * @Description: 更改登录注册状态
      * @Date: 10:45 2018/5/30
      * @Param: [login_error, login_success, signup_error, signup_success, model]
      * @return: void
      **/
-    private static void initialState(String login_error, String login_success, String signup_error, String signup_success, ModelMap model)
+    private static void changeLoginState(String login_error, String login_success, String signup_error, String signup_success, ModelMap model)
     {
         model.addAttribute("login_error", login_error);
         model.addAttribute("login_success", login_success);
         model.addAttribute("signup_error", signup_error);
         model.addAttribute("signup_success", signup_success);
+    }
+
+    /**
+    * @Description: 更改酒店模块信息
+    * @Date: 21:58 2018/6/5
+    * @Param: [hotelList, model]
+    * @return: void
+    **/
+    private static void changeHotelInfo(List<Hotel> hotelList, ModelMap model){
+        model.addAttribute("hotel1_ID", hotelList.get(0).getHotelId());
+        model.addAttribute("hotel1_title", hotelList.get(0).gethName());
+        model.addAttribute("hotel1_picture", hotelList.get(0).getPictures());
+        model.addAttribute("hotel1_description", hotelList.get(0).getDescription());
     }
 
     /**
@@ -46,10 +68,26 @@ public class HomePageController
      * @return: java.lang.String
      **/
     @RequestMapping("/HomePage.htm")
-    public String showView(ModelMap model)
+    public String showView(ModelMap model, HttpServletRequest request)
     {
         //初始化登录注册状态
-        initialState("false", "false", "false", "false", model);
+        changeLoginState("false", "false", "false", "false", model);
+        //获取session
+        HttpSession session = request.getSession();
+        System.out.println(session.getAttribute("city"));
+        //从数据库获取城市列表
+        List<City> cityList= cityDaoService.getCityListByName("");
+        model.addAttribute("cityList", cityList);
+        //若未选任何城市
+        List<Hotel> hotelList = hotelDaoService.getHotelListOrderedByViewCount();
+        changeHotelInfo(hotelList, model);
+        //若已选择城市
+        if(session.getAttribute("city") != null){
+            List<City> selectedCity = cityDaoService.getCityListByName((String) session.getAttribute("city"));
+            List<Hotel> selectedHotel = hotelDaoService.getHotelListByCityOrderedByViewCount(selectedCity.get(0).getCityId());
+            changeHotelInfo(selectedHotel, model);
+        }
+
         return "Coulson/HomePage";
     }
 
@@ -68,13 +106,13 @@ public class HomePageController
         //若登陆失败
         if (userLogined == null)
         {
-            initialState("true", "false", "false", "false", model);
+            changeLoginState("true", "false", "false", "false", model);
             System.out.println("Login fail");
         }
         //若登陆成功
         else
         {
-            initialState("false", "true", "false", "false", model);
+            changeLoginState("false", "true", "false", "false", model);
             HttpSession session = request.getSession();
             session.setAttribute("user", userLogined);
             model.addAttribute("login_name", userLogined.getuName());
@@ -105,14 +143,14 @@ public class HomePageController
         //若注册失败
         if (flag || nullError)
         {
-            initialState("false", "false", "true", "false", model);
+            changeLoginState("false", "false", "true", "false", model);
             System.out.println("The E-mail address has been registered.");
         }
         //若注册成功
         else
         {
             userDaoService.saveUser(user);
-            initialState("false", "false", "false", "true", model);
+            changeLoginState("false", "false", "false", "true", model);
             System.out.println("Sign up success.");
         }
         return "Coulson/HomePage";
@@ -126,7 +164,7 @@ public class HomePageController
      **/
     @RequestMapping("/city.htm")
     @ResponseBody
-    public String changeCity(String city)
+    public String changeCity(String city, HttpServletRequest request)
     {
         if (city.equals("青岛市"))
         {
@@ -134,6 +172,8 @@ public class HomePageController
         }
         String json = "{\"city\":\"" + city + "\"}";
         System.out.println(city);
+        HttpSession session = request.getSession();
+        session.setAttribute("city", city);
         return json;
     }
 }

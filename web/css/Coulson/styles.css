@@ -248,7 +248,7 @@ Swag
 Portfolio
 ========================================================================== */
 .effects { padding-left: 15px; }
-.effects .img { position: relative; margin-bottom: 50px; position: relative; z-index: 1; overflow: hidden; }
+.effects .img {height: 222px; position: relative; margin-bottom: 50px; position: relative; z-index: 1; overflow: hidden; }
 .effects .img:nth-child(n) { margin-right: 5px; }
 .effects .img:first-child { margin-left: -15px; }
 .effects .img:last-child { margin-right: 0; }
