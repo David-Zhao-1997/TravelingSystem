@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: 小龍ge
@@ -61,60 +62,108 @@
     </tr>
 </table>
     <div width="100%" height="100%" style="border-style: dot-dash;border-color: aqua">
-        <font style="font-family: Great Vibes,cursive;font-size: 50px;color: aqua">Donkey Kong</font>
+        <font style="font-family: Great Vibes,cursive;font-size: 50px;color: aqua">FALCON SPACE</font>
     </div>
     <div class="div1">
         <img src="image/Nick/d.jpg" width="100%" height="50%"/>
     </div>
-<div width="200px" height="200px" style="position: absolute;left:10%;top:20%;background: darkgrey;opacity: 80%">
-    <table>
+<div width="200px" height="200px" style="position: absolute;left:10%;top:20%;background: black;opacity: 0.8;width: 300px;height: 270px;">
+    <table style="padding-top: 20px;padding-left: 15px">
         <tr>
             <td>
-                <form id="form1" onsubmit="return false" action="##" method="post">
-                    <select  onclick="login()" name="city" style="width:249px;height: 50px;font-size: 20px">
+                <form id="form1"  action="HotelPage.htm" method="post">
+                    <select  name="cityId" class="demo-input">
                         <option value="">Choose city</option>
-                        <option value="Qingdao" >Qingdao</option>
-                        <option value="2" >Jinan</option>
-                        <option value="3" >Shanghai</option>
-                        <option value="Qingdao" >Beijing</option>
-                        <option value="2" >Yantai</option>
-                        <option value="3" >Suzhou</option>
+                        <c:forEach items="${cityList}" var="city">
+                            <option value="${city.cityId}">${city.cName}</option>
+                        </c:forEach>
                     </select>
-                </form>
-            </td>
+            <%--</td>--%>
         </tr>
         <tr>
             <td>
-                <input type="text" class="demo-input" placeholder="国际版" id="test1-1">
+                <input type="text" class="demo-input" placeholder="Check-in time" id="test1-1">
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="text" class="demo-input" placeholder="国际版" id="test1">
+            <td  style="padding-top: 15px">
+                <input type="text" class="demo-input" placeholder="Check-out time" id="test1">
             </td>
         </tr>
         <tr>
-            <td>
-                <input type="submit" value="Search" style="background: yellow;width:249px;height: 50px;font-size: 20px"/>
+            <td style="padding-top: 15px">
+                <input type="submit" value="Search"  style="background: yellow;width: 262px;min-width: 38px;line-height: 38px;font-size: 20px"/>
             </td>
         </tr>
     </table>
+    </form>
 </div>
+
         <table width="100%" style="background: darkgrey">
             <tr>
                 <td><div>The search results are as follows:</div></td>
             </tr>
         </table>
     <hr/>
-        <table border="1">
-            <tr>
-                <td>
-                   <img src="image/Nick/b.jpg" width="200px" height="200px"/>
-                </td>
-                <td>
-                    The details of Hotel
-                </td>
-            </tr>
+        <table style="width: 100%;align-content: center">
+            <c:forEach items="${hotelList}" var="hotel">
+                <tr>
+                    <td style="width: 300px;height: 300px">
+                        <img src="${hotel.pictures}" style="width: 300px;height: 300px"/>
+                    </td>
+                    <td>
+                        <table style="padding-left: 50px;width: 100%">
+                            <tr>
+                                <td style="padding-top: 25px">
+                                    Hotel Name:
+                                </td>
+                                <td style="padding-top: 25px;font-size: 30px">
+                                  ${hotel.hName}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 25px;">
+                                    Average Price:
+                                </td>
+                                <td style="padding-top: 25px;font-size: 30px;color: orangered">
+                                  ${hotel.avgPrice}$
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding-top: 25px">
+                                    Visits:
+                                </td>
+                                <td style="padding-top: 25px">
+                                  ${hotel.viewCount}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="padding-top: 25px">
+                                  ${hotel.description}
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                                <td style="padding-right: 20px">
+                                    <form id="form2" action="BookingPage.htm" method="get">
+                                        <input name="bookHotelID" type="hidden" value="${hotel.hotelId}">
+                                        <input type="submit" value="Book Hotel"  style="background:orangered;width: 262px;min-width: 38px;line-height: 38px;
+        font-size: 20px;"/>
+                                    </form>
+
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </c:forEach>
         </table>
+        <hr/>
 </body>
 </html>

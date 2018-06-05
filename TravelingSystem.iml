@@ -25,7 +25,6 @@
       <configuration>
         <fileset id="web application context" name="MVC application context" removed="true">
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/SpringXMLConfig.xml</file>
         </fileset>
         <fileset id="web dispatcher servlet context" name="MVC dispatcher servlet context" removed="true">
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
@@ -34,28 +33,6 @@
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
         </fileset>
-      </configuration>
-    </facet>
-    <facet type="JRebel" name="JRebel">
-      <configuration>
-        <option name="deleteUnindexed" value="false" />
-        <option name="httpAuthEnabled" value="false" />
-        <option name="httpPassword" />
-        <option name="httpUsername" />
-        <option name="ideModuleStorage">
-          <map>
-            <entry key="com.zeroturnaround.jrebel.FormatVersion" value="7.0.0" />
-            <entry key="com.zeroturnaround.jrebel.remoting.DeleteUnindexedFiles" value="false" />
-            <entry key="com.zeroturnaround.jrebel.remoting.ModuleRemoteServerSelection" value="off" />
-          </map>
-        </option>
-        <option name="manualXML" value="false" />
-        <option name="masterModuleName" />
-        <option name="overrideStandardXmlFolder" value="false" />
-        <option name="remotingEnabled" value="false" />
-        <option name="secure" value="true" />
-        <option name="url" />
-        <option name="xmlDir" />
       </configuration>
     </facet>
   </component>
@@ -74,23 +51,5 @@
     <orderEntry type="library" exported="" name="javax.annotation" level="project" />
     <orderEntry type="library" name="jtds-1.3.1" level="project" />
     <orderEntry type="library" name="aspectjweaver-1.8.3" level="project" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/jackson-core-asl.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/jackson-mapper-asl-1.9.11.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
   </component>
 </module>
