@@ -1,0 +1,54 @@
+.background{
+    width:1350px;
+    height:650px;
+    background-image:url("/image/Frank/1.jpg");
+    background-size:100%,100%;
+    margin:0px;
+    padding:0px;
+
+}
+.slider ul li{
+    list-style: none;
+}
+.nav ul{
+    width:800px;
+    margin:0px auto 0px auto;
+    padding:0;
+    list-style: none;
+}
+.nav ul li{
+    float:left;
+    list-style: none;
+
+}
+.nav ul li a{
+    width:105px;
+    height:35px;
+    line-height:30px;
+    background:#ac2925;
+    color:#FFF;
+    margin:10px 25px;
+    font-size:20px;
+    display:block;
+    text-align:center;
+    text-decoration:none;
+    list-style: none;
+    border-radius:10px;
+}
+.nav ul li a:hover{
+    width:105px;
+    height:35px;
+    line-height:30px;
+    color:#ac2925;
+    background:#d9edf7;
+    border-radius:10px;
+}
+
+.nav ul li{ float:left; line-height:40px; text-align:center; position:relative;}
+.nav ul li a{ text-decoration:none; color:#d9edf7; display:block;padding:0px 0px;}
+.nav ul li a:hover{ color:#46b8da; background:#212024}
+.nav ul li ul{ position:absolute; display:none;}
+.nav ul li ul li{ float:none; line-height:30px; text-align:left;}
+
+
+.nav ul li:hover ul{ display:block}
