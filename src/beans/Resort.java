@@ -18,6 +18,7 @@ public class Resort
     private int cityId;
     private String pictures;
     private int viewCount;
+    private int level;
 
     @Id
     @Column(name = "ResortID", nullable = false)
@@ -137,5 +138,17 @@ public class Resort
                 ", pictures='" + pictures + '\'' +
                 ", viewCount=" + viewCount +
                 '}';
+    }
+
+    @Basic
+    @Column(name = "Level", nullable = false)
+    public int getLevel()
+    {
+        return level;
+    }
+
+    public void setLevel(int level)
+    {
+        this.level = level;
     }
 }

@@ -26,5 +26,8 @@
         <property name="viewCount">
             <column name="ViewCount" sql-type="int"/>
         </property>
+        <property name="level">
+            <column name="Level" sql-type="int"/>
+        </property>
     </class>
 </hibernate-mapping>
