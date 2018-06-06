@@ -154,7 +154,7 @@ public class HotelDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel order by viewCount");
+            Query query = session.createQuery("from Hotel order by viewCount desc");
             List hotelList = query.list();
             tx.commit();
             session.close();
@@ -173,7 +173,7 @@ public class HotelDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Hotel where cityId = ? order by viewCount");
+            Query query = session.createQuery("from Hotel where cityId = ? order by viewCount desc");
             query.setInteger(0, cityId);
             List hotelList = query.list();
             tx.commit();

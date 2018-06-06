@@ -154,7 +154,7 @@ public class ResortDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort order by viewCount");
+            Query query = session.createQuery("from Resort order by viewCount desc");
             List resortList = query.list();
             tx.commit();
             session.close();
@@ -173,7 +173,7 @@ public class ResortDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where cityId = ? order by viewCount");
+            Query query = session.createQuery("from Resort where cityId = ? order by viewCount desc");
             query.setInteger(0, cityId);
             List resortList = query.list();
             tx.commit();

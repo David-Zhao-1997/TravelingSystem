@@ -154,7 +154,7 @@ public class FoodDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Food order by viewCount");
+            Query query = session.createQuery("from Food order by viewCount desc");
             List foodList = query.list();
             tx.commit();
             session.close();
@@ -173,7 +173,7 @@ public class FoodDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Food where cityId = ? order by viewCount");
+            Query query = session.createQuery("from Food where cityId = ? order by viewCount desc");
             query.setInteger(0, cityId);
             List foodList = query.list();
             tx.commit();
