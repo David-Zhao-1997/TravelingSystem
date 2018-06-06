@@ -67,6 +67,40 @@
     <div class="div1">
         <img src="image/Nick/d.jpg" width="100%" height="50%"/>
     </div>
+    <div style="height: 100%;height: 8%;background: darkgrey;text-align: center;font-size: 30px">
+        The most popular hotels
+    </div>
+    <table style="text-align: center;margin: auto">
+        <tr>
+            <td style="padding-right: 20px">
+                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+            </td>
+            <td style="padding-right: 20px">
+                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+            </td>
+            <td style="padding-right: 20px">
+                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+            </td>
+            <td style="padding-right: 20px">
+                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>Hotel Name</center>
+            </td>
+            <td>
+                <center>Hotel Name</center>
+            </td>
+            <td>
+                <center>Hotel Name</center>
+            </td>
+            <td>
+                <center>Hotel Name</center>
+            </td>
+        </tr>
+    </table>
+<hr/>
 <div width="200px" height="200px" style="position: absolute;left:10%;top:20%;background: black;opacity: 0.8;width: 300px;height: 270px;">
     <table style="padding-top: 20px;padding-left: 15px">
         <tr>
@@ -99,9 +133,9 @@
     </form>
 </div>
 
-        <table width="100%" style="background: darkgrey">
+        <table width="100%">
             <tr>
-                <td><div>The search results are as follows:</div></td>
+                <td><div style="font-size: 30px">The search results are as follows:</div></td>
             </tr>
         </table>
     <hr/>
@@ -156,7 +190,6 @@
                                         <input type="submit" value="Book Hotel"  style="background:orangered;width: 262px;min-width: 38px;line-height: 38px;
         font-size: 20px;"/>
                                     </form>
-
                                 </td>
                             </tr>
                         </table>
