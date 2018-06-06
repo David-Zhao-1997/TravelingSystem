@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import beans.City;
 import beans.Food;
 
 @SuppressWarnings("ALL")
@@ -149,7 +148,7 @@ public class FoodDaoService
         }
     }
 
-    public List<City> getFoodListOrderedByViewCount()
+    public List<Food> getFoodListOrderedByViewCount()
     {
         try
         {
@@ -168,7 +167,7 @@ public class FoodDaoService
         }
     }
 
-    public List<City> getFoodListByCityOrderedByViewCount(int cityId)
+    public List<Food> getFoodListByCityOrderedByViewCount(int cityId)
     {
         try
         {

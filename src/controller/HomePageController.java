@@ -1,22 +1,22 @@
 package controller;
 
-import beans.City;
-import beans.Hotel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import beans.City;
+import beans.Hotel;
 import beans.User;
 import service.CityDaoService;
 import service.HotelDaoService;
 import service.UserDaoService;
-
-import java.util.List;
 
 /**
  * @Author: LiuLou
@@ -179,4 +179,3 @@ public class HomePageController
         return json;
     }
 }
-
