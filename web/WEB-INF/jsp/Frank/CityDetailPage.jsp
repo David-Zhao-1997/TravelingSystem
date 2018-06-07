@@ -9,10 +9,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>${city.cName}</title>
+    <title></title>
 </head>
 <body>
 <div class="background">
-
+    <c:forEach items="${resortList}" var="resort">
+        ${resort.rName}
+        ${resort.description}
+        ${resort.price}
+        <img src="${resort.pictures}"/>
+        ${resort.level}
+    </c:forEach>
 </body>
 </html>
