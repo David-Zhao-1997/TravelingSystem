@@ -11,7 +11,7 @@
 <head>
     <link  href="css/Frank/style.css" rel="stylesheet" type="text/css" media="all" />
 </head>
-<body>
+<body style="margin: 0">
 <div class="background">
     <form action="SceneryPage.htm" method="post">
         <ul class="nav">

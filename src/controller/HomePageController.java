@@ -1,5 +1,6 @@
 package controller;
 
+import beans.Food;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,6 +16,7 @@ import beans.City;
 import beans.Hotel;
 import beans.User;
 import service.CityDaoService;
+import service.FoodDaoService;
 import service.HotelDaoService;
 import service.UserDaoService;
 
@@ -30,9 +32,11 @@ public class HomePageController
     @Autowired
     private UserDaoService userDaoService;
     @Autowired
+    private CityDaoService cityDaoService;
+    @Autowired
     private HotelDaoService hotelDaoService;
     @Autowired
-    private CityDaoService cityDaoService;
+    private FoodDaoService foodDaoService;
 
     /**
      * @Description: 更改登录注册状态
@@ -49,17 +53,24 @@ public class HomePageController
     }
 
     /**
-    * @Description: 更改酒店模块信息
+    * @Description: 更改各模块信息
     * @Date: 21:58 2018/6/5
     * @Param: [hotelList, model]
     * @return: void
     **/
-    private static void changeHotelInfo(List<Hotel> hotelList, ModelMap model){
+    private static void changeInfo(List<Hotel> hotelList, List<Food> foodList, ModelMap model){
         for(int i=0; i<hotelList.size(); i++){
             model.addAttribute("hotel"+(i+1)+"_ID", hotelList.get(i).getHotelId());
             model.addAttribute("hotel"+(i+1)+"_title", hotelList.get(i).gethName());
             model.addAttribute("hotel"+(i+1)+"_picture", hotelList.get(i).getPictures());
             model.addAttribute("hotel"+(i+1)+"_description", hotelList.get(i).getDescription());
+
+        }
+        for(int i=0; i<foodList.size(); i++){
+            model.addAttribute("food"+(i+1)+"_ID", foodList.get(i).getFoodId());
+            model.addAttribute("food"+(i+1)+"_name", foodList.get(i).getfName());
+            model.addAttribute("food"+(i+1)+"_picture", foodList.get(i).getPictures());
+            model.addAttribute("food"+(i+1)+"_description", foodList.get(i).getDescription());
         }
     }
 
@@ -72,22 +83,45 @@ public class HomePageController
     @RequestMapping("/HomePage.htm")
     public String showView(ModelMap model, HttpServletRequest request)
     {
-        //初始化登录注册状态
-        changeLoginState("false", "false", "false", "false", model);
         //获取session
         HttpSession session = request.getSession();
-        System.out.println(session.getAttribute("city"));
+        //初始化城市选择框
+        model.addAttribute("city", "Your City");
+
+        //判断用户是否登陆
+        if(session.getAttribute("user") == null){
+            //初始化登录注册状态
+            changeLoginState("false", "false", "false", "false", model);
+        }else {
+            //获取已登陆用户信息
+            changeLoginState("false", "true", "false", "false", model);
+            User userLogined = (User) session.getAttribute("user");
+            model.addAttribute("login_name", userLogined.getuName());
+            System.out.println(userLogined.getuName());
+        }
+
+
+
         //从数据库获取城市列表
         List<City> cityList= cityDaoService.getCityListByName("");
         model.addAttribute("cityList", cityList);
-        //若未选任何城市
+
+        //若未选任何城市，获取各模块信息
         List<Hotel> hotelList = hotelDaoService.getHotelListOrderedByViewCount();
-        changeHotelInfo(hotelList, model);
+        List<Food> foodList = foodDaoService.getFoodListOrderedByViewCount();
+        changeInfo(hotelList, foodList, model);
         //若已选择城市
         if(session.getAttribute("city") != null){
+            //更改城市选择框值
+            model.addAttribute("city", session.getAttribute("city"));
+            //查询所选城市ID
             List<City> selectedCity = cityDaoService.getCityListByName((String) session.getAttribute("city"));
-            List<Hotel> selectedHotel = hotelDaoService.getHotelListByCityOrderedByViewCount(selectedCity.get(0).getCityId());
-            changeHotelInfo(selectedHotel, model);
+            int cityID = selectedCity.get(0).getCityId();
+            //查询所选城市酒店信息
+            List<Hotel> selectedHotel = hotelDaoService.getHotelListByCityOrderedByViewCount(cityID);
+            //查询所选城市美食信息
+            List<Food> selectedFood = foodDaoService.getFoodListByCityOrderedByViewCount(cityID);
+            changeInfo(selectedHotel, foodList, model);
         }
 
         return "Coulson/HomePage";
@@ -119,7 +153,21 @@ public class HomePageController
             session.setAttribute("user", userLogined);
             model.addAttribute("login_name", userLogined.getuName());
             System.out.println("Login success");
+            //若已选择城市
+            if(session.getAttribute("city") != null) {
+                model.addAttribute("city", session.getAttribute("city"));
+            }
+            //若未选城市
+            else{
+                model.addAttribute("city", "Your City");
+            }
         }
+
+        List<City> cityList= cityDaoService.getCityListByName("");
+        model.addAttribute("cityList", cityList);
+        List<Hotel> hotelList = hotelDaoService.getHotelListOrderedByViewCount();
+        List<Food> foodList = foodDaoService.getFoodListOrderedByViewCount();
+        changeInfo(hotelList, foodList, model);
         return "Coulson/HomePage";
     }
 
@@ -166,7 +214,7 @@ public class HomePageController
      **/
     @RequestMapping("/city.htm")
     @ResponseBody
-    public String changeCity(String city, HttpServletRequest request)
+    public String changeCity(String city, HttpServletRequest request, ModelMap model)
     {
         if (city.equals("青岛市           (current position)"))
         {
@@ -176,6 +224,7 @@ public class HomePageController
         System.out.println(city);
         HttpSession session = request.getSession();
         session.setAttribute("city", city);
+
         return json;
     }
 }

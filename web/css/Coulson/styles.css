@@ -289,6 +289,12 @@ ul.social-buttons li:last-child { margin-right: 0; }
 .social-btn { width: 40px; height: 40px; border-radius: 50%; -moz-border-radius: 50%; -webkit-border-radius: 50%; -o-border-radius: 50%; background: #242830; display: inline-block; color: #fff; font-size: 17px; line-height: 40px; text-align: center; }
 .social-btn:hover, .social-btn:focus { background: #3dc9b3; color: #fff; }
 .social { margin-top: 25px }
+.fa-twitter {
+	line-height: 2.3;
+}
+.fa-twitter:before {
+	content: "\f004";
+}
 /* ==========================================================================
 Contact
 ========================================================================== */

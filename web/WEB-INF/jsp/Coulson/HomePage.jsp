@@ -101,7 +101,7 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <a href="javascript:" class="learn-more-btn">Start journey</a>
-                    <input type="button" class="login-open" value="<c:out value='${login_name}'/>"/>
+                    <input type="button" class="login-open" value="<c:out value='${login_name}'/>" onclick="window.open('/UserCenter.htm')"/>
                 </div>
             </div>
         </div>
@@ -110,7 +110,7 @@
     <div class="form-group">
         <%--<label for="city">城市:</label>--%>
         <select name="city" id="city" class="city pickout" placeholder="CHOOSE YOUR CITY">
-            <option id="user_location" value="userLoc">Your City</option>
+            <option id="user_location" value="userLoc">${city}</option>
             <c:forEach items="${cityList}" var="city">
                 <option value="${city.cityId}">${city.cName}</option>
             </c:forEach>
@@ -434,77 +434,83 @@
                     <ul class="slides">
                         <li>
                             <div class="col-md-4 wp5">
-                                <img src="image/HomePage/team-01.png" alt="Team Member">
-                                <h2>Jon Snow</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food1_picture}" alt="Team Member">
+                                <h2>${food1_name}</h2>
+                                <p>${food1_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food1_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="col-md-4 wp5 delay-05s">
-                                <img src="image/HomePage/team-02.png" alt="Team Member">
-                                <h2>Cersei Lannister</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food2_picture}" alt="Team Member">
+                                <h2>${food2_name}</h2>
+                                <p>${food2_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food2_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-4 wp5 delay-1s">
-                                <img src="image/HomePage/team-03.png" alt="Team Member">
-                                <h2>Jamie Lannister</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food3_picture}" alt="Team Member">
+                                <h2>${food3_name}</h2>
+                                <p>${food3_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food3_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="col-md-4 wp5">
-                                <img src="image/HomePage/team-01.png" alt="Team Member">
-                                <h2>Jon Snow</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food4_picture}" alt="Team Member">
+                                <h2>${food4_name}</h2>
+                                <p>${food4_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food4_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-4 wp5 delay-05s">
-                                <img src="image/HomePage/team-02.png" alt="Team Member">
-                                <h2>Cersei Lannister</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food5_picture}" alt="Team Member">
+                                <h2>${food5_name}</h2>
+                                <p>${food5_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food5_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i style="content: '\f004'" class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="col-md-4 wp5 delay-1s">
-                                <img src="image/HomePage/team-03.png" alt="Team Member">
-                                <h2>Jamie Lannister</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                                <img src="${food6_picture}" alt="Team Member">
+                                <h2>${food6_name}</h2>
+                                <p>${food6_description}</p>
                                 <div class="social">
                                     <ul class="social-buttons">
-                                        <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                                        <li>
+                                            <input type="hidden" value="${food6_ID}">
+                                            <a href="FoodPage.htm" class="social-btn"><i class="fa fa-twitter"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
