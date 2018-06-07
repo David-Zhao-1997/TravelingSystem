@@ -1,54 +1,116 @@
 .background{
     width:1350px;
-    height:650px;
+    height:680px;
     background-image:url("/image/Frank/1.jpg");
     background-size:100%,100%;
     margin:0px;
     padding:0px;
-
 }
-.slider ul li{
+ul li a{
+    font-size:25px;
+}
+ul{
+    display:inline-block;
     list-style: none;
-}
-.nav ul{
-    width:800px;
     margin:0px auto 0px auto;
     padding:0;
-    list-style: none;
+}
+.nav>li {
+    float: left;
+}
+ul a{
+
+    display: block;
+    text-decoration: none;
+    width: 266px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    background-color: #2f3e45;
+}
+.nav>li:first-child a{
+    border-radius: 10px 0 0 10px;
+}
+.nav>li:last-child a{
+    border-radius: 0 10px 10px 0;
+}
+.drop-down{
+    height: 50px;
+}
+ul li a:hover{
+    width:266px;
+    height:50px;
+    line-height:50px;
+    text-align: center;
+    background:#46b8da;
+}
+.drop-down-content{
+    padding: 0;
+    opacity: 0.3;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+}
+.drop-down-content li:hover a{
+    background-color:#46b8da;
+}
+.nav .drop-down:hover .drop-down-content{
+    opacity: 1;
+    height: 150px;
+}
+
+
+.search{
+    width: 380px;
+    margin: 30px auto;
+    font-family: 'Microsoft YaHei';
+    font-size: 14px;
+}
+input{
+    width: 260px;
+    border: 1px solid #e2e2e2;
+    height: 30px;
+    float: left;
+    background-image: url('/image/Frank/glass.jpg');
+    background-repeat: no-repeat;
+    background-size: 25px;
+    background-position:5px center;
+    padding:0 0 0 40px;
+}
+#search{
+    width: 78px;
+    height: 30px;
+    float: right;
+    background: black;
+    color: white;
+    text-align: center;
+    line-height: 32px;
+    cursor: pointer;
 }
 .nav ul li{
-    float:left;
-    list-style: none;
-
+    background: none;
 }
-.nav ul li a{
-    width:105px;
-    height:35px;
-    line-height:30px;
-    background:#ac2925;
-    color:#FFF;
-    margin:10px 25px;
-    font-size:20px;
-    display:block;
+.dropdown_button {
+    height: 50px;
+    border: 0px;
+    background: none;
+    overflow: hidden;
+    transition: all 1s ease;
+    background-color: #2f3e45;
     text-align:center;
-    text-decoration:none;
-    list-style: none;
-    border-radius:10px;
+    font-size:25px;
+    color:white;
 }
-.nav ul li a:hover{
-    width:105px;
-    height:35px;
-    line-height:30px;
-    color:#ac2925;
-    background:#d9edf7;
-    border-radius:10px;
+.dropdown_button:hover{
+    padding: 0;
+    opacity: 0.3;
+    height: 0;
+    overflow: hidden;
+    transition: all 1s ease;
+    background-color:#46b8da;
 }
-
-.nav ul li{ float:left; line-height:40px; text-align:center; position:relative;}
-.nav ul li a{ text-decoration:none; color:#d9edf7; display:block;padding:0px 0px;}
-.nav ul li a:hover{ color:#46b8da; background:#212024}
-.nav ul li ul{ position:absolute; display:none;}
-.nav ul li ul li{ float:none; line-height:30px; text-align:left;}
-
-
-.nav ul li:hover ul{ display:block}
+.nav .drop-down:hover .dropdown_button{
+    opacity: 1;
+    height: 50px;
+}
