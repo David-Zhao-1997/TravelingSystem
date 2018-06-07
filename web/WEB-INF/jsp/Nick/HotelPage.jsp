@@ -11,6 +11,7 @@
 <head>
     <meta charset="utf-8">
     <title>HotelPage</title>
+    <link rel="shortcut icon" href="../../../image/HomePage/favicon.ico"/>
     <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>css/Nick/HotelPage.css"/>
     <script src="../../../js/Nick/laydate.js"></script>
     <script type="text/javascript">
