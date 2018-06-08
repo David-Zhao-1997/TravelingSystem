@@ -3,28 +3,29 @@ package service;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import beans.Resort;
+import beans.Note;
 
 @SuppressWarnings("ALL")
 @Component
-public class ResortDaoService
+public class NoteDaoService
 {
     @Autowired
     SessionFactory sessionFactory;
 
-    public boolean saveResort(Resort resort)
+    public boolean saveNote(Note note)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.save(resort);
+            session.save(note);
             tx.commit();
             session.close();
             return true;
@@ -36,13 +37,13 @@ public class ResortDaoService
         }
     }
 
-    public boolean updateResort(Resort resort)
+    public boolean updateNote(Note note)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.update(resort);
+            session.update(note);
             tx.commit();
             session.close();
             return true;
@@ -54,13 +55,13 @@ public class ResortDaoService
         }
     }
 
-    public boolean deleteResort(Resort resort)
+    public boolean deleteNote(Note note)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            session.delete(resort);
+            session.delete(note);
             tx.commit();
             session.close();
             return true;
@@ -72,18 +73,18 @@ public class ResortDaoService
         }
     }
 
-    public Resort getResortByID(int id)
+    public Note getNoteByID(int id)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where resortId = ?");
+            Query query = session.createQuery("from Note where noteId = ?");
             query.setInteger(0, id);
-            Resort resort = (Resort) query.uniqueResult();
+            Note note = (Note) query.uniqueResult();
             tx.commit();
             session.close();
-            return resort;
+            return note;
         }
         catch (Exception e)
         {
@@ -92,18 +93,38 @@ public class ResortDaoService
         }
     }
 
-    public List<Resort> getResortByCityID(int cityId)
+    public List<Note> getNoteByResortID(int resortId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where cityId = ?");
+            Query query = session.createQuery("from Note where resortId = ?");
+            query.setInteger(0, resortId);
+            List noteList = query.list();
+            tx.commit();
+            session.close();
+            return noteList;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public List<Note> getNoteByCityID(int cityId)
+    {
+        try
+        {
+            Session session = sessionFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("from Note where cityId = ?");
             query.setInteger(0, cityId);
-            List resortList = query.list();
+            List noteList = query.list();
             tx.commit();
             session.close();
-            return resortList;
+            return noteList;
         }
         catch (Exception e)
         {
@@ -112,97 +133,43 @@ public class ResortDaoService
         }
     }
 
-    public List<Resort> getResortListByName(String resortName)
+    public int getUpNumberByNoteID(int noteId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where hName like ?");
-            query.setString(0, "%" + resortName + "%");
-            List resortList = query.list();
+            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where NoteID = ? and Up = 1");
+            query.setParameter(1, noteId);
+            int number = (int) session.createSQLQuery("").uniqueResult();
             tx.commit();
             session.close();
-            return resortList;
+            return number;
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            return null;
+            return 0;
         }
     }
 
-    public boolean increaseViewCount(int resortID)
-    {
-        try
-        {
-            Resort resort = getResortByID(resortID);
-            resort.setViewCount(resort.getViewCount() + 1);
-            updateResort(resort);
-            return true;
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public List<Resort> getResortListOrderedByViewCount()
+    public int getDownNumberByNoteID(int noteId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort order by viewCount desc");
-            List resortList = query.list();
+            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where NoteID = ? and Down = 1");
+            query.setParameter(1, noteId);
+            int number = (int) session.createSQLQuery("").uniqueResult();
             tx.commit();
             session.close();
-            return resortList;
+            return number;
         }
         catch (Exception e)
         {
             e.printStackTrace();
-            return null;
-        }
-    }
-
-    public List<Resort> getResortListOrderedByLevel()
-    {
-        try
-        {
-            Session session = sessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort order by level desc");
-            List resortList = query.list();
-            tx.commit();
-            session.close();
-            return resortList;
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public List<Resort> getResortListByCityOrderedByViewCount(int cityId)
-    {
-        try
-        {
-            Session session = sessionFactory.openSession();
-            Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where cityId = ? order by viewCount desc");
-            query.setInteger(0, cityId);
-            List resortList = query.list();
-            tx.commit();
-            session.close();
-            return resortList;
-        }
-        catch (Exception e)
-        {
-            e.printStackTrace();
-            return null;
+            return 0;
         }
     }
 }
