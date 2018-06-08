@@ -20,5 +20,8 @@
         <property name="dor">
             <column name="DOR" sql-type="datetime"/>
         </property>
+        <property name="profile">
+            <column name="profile" length="100" not-null="true" sql-type="varchar(100)"/>
+        </property>
     </class>
 </hibernate-mapping>

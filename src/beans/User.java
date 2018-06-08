@@ -1,7 +1,6 @@
 package beans;
 
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Objects;
 
 import javax.persistence.Basic;
@@ -17,6 +16,7 @@ public class User
     private String uName;
     private int state = 1;
     private Timestamp dor = new Timestamp(System.currentTimeMillis());
+    private String profile;
 
     @Id
     @Column(name = "Email", nullable = false, length = 100)
@@ -78,6 +78,18 @@ public class User
         this.dor = dor;
     }
 
+    @Basic
+    @Column(name = "profile", nullable = true, length = 100)
+    public String getProfile()
+    {
+        return profile;
+    }
+
+    public void setProfile(String profile)
+    {
+        this.profile = profile;
+    }
+
     @Override
     public boolean equals(Object o)
     {
@@ -88,25 +100,14 @@ public class User
                 Objects.equals(email, user.email) &&
                 Objects.equals(uPass, user.uPass) &&
                 Objects.equals(uName, user.uName) &&
-                Objects.equals(dor, user.dor);
+                Objects.equals(dor, user.dor) &&
+                Objects.equals(profile, user.profile);
     }
 
     @Override
     public int hashCode()
     {
 
-        return Objects.hash(email, uPass, uName, state, dor);
-    }
-
-    @Override
-    public String toString()
-    {
-        return "User{" +
-                "email='" + email + '\'' +
-                ", uPass='" + uPass + '\'' +
-                ", uName='" + uName + '\'' +
-                ", state=" + state +
-                ", dor=" + dor +
-                '}';
+        return Objects.hash(email, uPass, uName, state, dor, profile);
     }
 }
