@@ -133,14 +133,14 @@ public class NoteDaoService
         }
     }
 
-    public int getUpNumberByNoteID(int noteId)
+    public int getUpNumberByNoteID(int resortId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where NoteID = ? and Up = 1");
-            query.setParameter(1, noteId);
+            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where ResortID = ? and Up = 1");
+            query.setParameter(1, resortId);
             int number = (int) session.createSQLQuery("").uniqueResult();
             tx.commit();
             session.close();
@@ -153,14 +153,14 @@ public class NoteDaoService
         }
     }
 
-    public int getDownNumberByNoteID(int noteId)
+    public int getDownNumberByNoteID(int resortId)
     {
         try
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where NoteID = ? and Down = 1");
-            query.setParameter(1, noteId);
+            NativeQuery query = session.createNativeQuery("select count(*) from TravelingSystem.dbo.Note where ResortID = ? and Down = 1");
+            query.setParameter(1, resortId);
             int number = (int) session.createSQLQuery("").uniqueResult();
             tx.commit();
             session.close();
