@@ -118,7 +118,7 @@ public class ResortDaoService
         {
             Session session = sessionFactory.openSession();
             Transaction tx = session.beginTransaction();
-            Query query = session.createQuery("from Resort where hName like ?");
+            Query query = session.createQuery("from Resort where rName like ?");
             query.setString(0, "%" + resortName + "%");
             List resortList = query.list();
             tx.commit();
