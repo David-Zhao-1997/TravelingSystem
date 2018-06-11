@@ -83,7 +83,7 @@ public class HomePageController
     {
         //获取session
         HttpSession session = request.getSession();
-        session.setMaxInactiveInterval(50);
+        session.setMaxInactiveInterval(3 * 60);
         //初始化城市选择框
         model.addAttribute("city", "Your City");
 
