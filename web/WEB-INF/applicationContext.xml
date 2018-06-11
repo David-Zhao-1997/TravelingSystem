@@ -20,6 +20,12 @@
     <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" id="mySessionFactory">
         <property name="configLocation" value="classpath:hibernate.cfg.xml"/>
         <property name="dataSource" ref="dataSource"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.connection.url">jdbc:jtds:sqlserver://139.199.27.20:1433</prop>
+                <prop key="hibernate.connection.driver_class">net.sourceforge.jtds.jdbc.Driver</prop>
+            </props>
+        </property>
     </bean>
 
     <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager" id="txManager">

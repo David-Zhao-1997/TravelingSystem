@@ -8,23 +8,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <%String path = request.getContextPath();%>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
-    <link rel="shortcut icon" href="../../../image/HomePage/favicon.ico"/>
+    <link rel="shortcut icon" href="<%=path%>/image/HomePage/favicon.ico"/>
 
     <%--<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>--%>
-    <link href="../../../css/Coulson/bootstrap.min.css" rel="stylesheet">
+    <link href="<%=path%>/css/Coulson/bootstrap.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="../../../css/Coulson/flexslider.css" rel="stylesheet" >
-    <link href="../../../css/Coulson/styles.css" rel="stylesheet">
-    <link href="../../../css/Coulson/queries.css" rel="stylesheet">
-    <link href="../../../css/Coulson/animate.css" rel="stylesheet">
-    <link href="../../../css/Coulson/login.css" rel="stylesheet"/>
-    <link href="../../../css/Coulson/pickout.css" rel="stylesheet">
-    <script type="text/javascript" src="../../../js/Coulson/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="../../../js/Coulson/login.js"></script>
-    <script type="text/javascript" src="../../../js/Coulson/pickout.js"></script>
+    <link href="<%=path%>/css/Coulson/flexslider.css" rel="stylesheet" >
+    <link href="<%=path%>/css/Coulson/styles.css" rel="stylesheet">
+    <link href="<%=path%>/css/Coulson/queries.css" rel="stylesheet">
+    <link href="<%=path%>/css/Coulson/animate.css" rel="stylesheet">
+    <link href="<%=path%>/css/Coulson/login.css" rel="stylesheet"/>
+    <link href="<%=path%>/css/Coulson/pickout.css" rel="stylesheet">
+    <script type="text/javascript" src="<%=path%>/js/Coulson/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="<%=path%>/js/Coulson/login.js"></script>
+    <script type="text/javascript" src="<%=path%>/js/Coulson/pickout.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=fs7e5ypI0ghzGLY03EHCHoaGIopqxpOb"></script>
 
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -94,7 +95,7 @@
             </div>
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center inner">
-                    <h1 class="animated fadeInDown">FALCON<span>SPACE</span></h1>
+                    <h1 class="animated fadeInDown">TRAVEL<span>AROUND</span></h1>
                     <p class="animated fadeInUp delay-05s">An exclusive website for <em>Traveling</em></p>
                 </div>
             </div>
@@ -638,10 +639,10 @@
         });
     }
 </script>
-<script src="../../../js/Coulson/waypoints.min.js"></script>
-<script src="../../../js/Coulson/bootstrap.min.js"></script>
-<script src="../../../js/Coulson/scripts.js"></script>
-<script src="../../../js/Coulson/jquery.flexslider.js"></script>
-<script src="../../../js/Coulson/modernizr.js"></script>
+<script src="<%=path%>/js/Coulson/waypoints.min.js"></script>
+<script src="<%=path%>/js/Coulson/bootstrap.min.js"></script>
+<script src="<%=path%>/js/Coulson/scripts.js"></script>
+<script src="<%=path%>/js/Coulson/jquery.flexslider.js"></script>
+<script src="<%=path%>/js/Coulson/modernizr.js"></script>
 </body>
 </html>

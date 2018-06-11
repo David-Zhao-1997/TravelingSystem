@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>css/Nick/BookingPage.css"/>
-    <script src="../../../js/Nick/laydate.js"></script>
+    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>/css/Nick/BookingPage.css"/>
+    <script src="<%=request.getContextPath()%>/js/Nick/laydate.js"></script>
     <script type="text/javascript">
         laydate.render({
             elem: '#test1-1'

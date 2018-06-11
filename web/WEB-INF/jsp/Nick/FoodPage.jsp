@@ -10,7 +10,7 @@
 <html>
 <head>
     <title>FoodPage</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>css/Nick/FoodPage.css"/>
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/Nick/FoodPage.css"/>
 
     <script type="text/javascript">
         window.onload = function () {
