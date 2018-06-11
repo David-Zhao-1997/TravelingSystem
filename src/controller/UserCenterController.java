@@ -67,8 +67,8 @@ public class UserCenterController {
         //获取已登陆用户
         HttpSession session = request.getSession();
         User userLogined = (User) session.getAttribute("user");
-        String rootPath = "C:\\Users\\Administrator\\Workspaces\\IDEA\\TravelingSystem\\out\\artifacts\\TravelingSystem_war_exploded\\image\\User\\";
-//        String rootPath = "C:\\Users\\Administrator\\Desktop\\apache-tomcat-7.0.77\\webapps\\ROOT\\";//for remote tomcat
+//        String rootPath = "C:\\Users\\Administrator\\Workspaces\\IDEA\\TravelingSystem\\out\\artifacts\\TravelingSystem_war_exploded\\image\\User\\";
+        String rootPath = "C:\\Users\\Administrator\\Desktop\\apache-tomcat-7.0.77\\webapps\\ROOT\\";//for remote tomcat
 
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("UTF-8");
@@ -96,22 +96,22 @@ public class UserCenterController {
             else {
                 //在存储新图片前，判断用户是否上传过头像，若有则删除旧头像
                 if (!userLogined.getProfile().substring(12).equals("defaultProfile.jpg")) {
-                    File oldProfile = new File(rootPath.substring(0, 98) + userLogined.getProfile());
-//                    File oldProfile = new File(rootPath + userLogined.getProfile());//for remote Tomcat
+//                    File oldProfile = new File(rootPath.substring(0, 98) + userLogined.getProfile());
+                    File oldProfile = new File(rootPath + userLogined.getProfile());//for remote Tomcat
                     oldProfile.delete();
                 }
                 System.out.println("NewProfile Name: " + srcFile.getOriginalFilename());
                 //新建目标目录
-                String path = rootPath + new Date().getTime() + srcFile.getOriginalFilename();
-//                String path = rootPath + "image\\User\\" + new Date().getTime() + srcFile.getOriginalFilename();//for remote Tomcat
+//                String path = rootPath + new Date().getTime() + srcFile.getOriginalFilename();
+                String path = rootPath + "image\\User\\" + new Date().getTime() + srcFile.getOriginalFilename();//for remote Tomcat
                 File desFile = new File(path);
                 System.out.println(path);
                 //将上传文件复制到目标目录
                 srcFile.transferTo(desFile);
 
                 //存储图片路径到用户表中
-                String profile_path = "/image/User/" + path.substring(109);
-//                String profile_path = "/image/User/" + path.substring(76);//for remote tomcat
+//                String profile_path = "/image/User/" + path.substring(109);
+                String profile_path = "/image/User/" + path.substring(76);//for remote tomcat
                 userLogined.setProfile(profile_path);
                 userDaoService.updateUser(userLogined);
 
