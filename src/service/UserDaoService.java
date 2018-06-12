@@ -1,5 +1,6 @@
 package service;
 
+import beans.Users;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -9,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-import beans.User;
 
 @SuppressWarnings("ALL")
 @Component
@@ -22,28 +22,28 @@ public class UserDaoService
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = ?");
+        Query query = session.createQuery("from Users where email = ?");
         query.setString(0, email);
-        User user = (User) query.uniqueResult();
+        Users user = (Users) query.uniqueResult();
         tx.commit();
         session.close();
         return user != null;
     }
 
-    public User validateUser(String email, String password)
+    public Users validateUser(String email, String password)
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = ? and uPass = ? ");
+        Query query = session.createQuery("from Users where email = ? and uPass = ? ");
         query.setString(0, email);
         query.setString(1, password);
-        User user = (User) query.uniqueResult();
+        Users user = (Users) query.uniqueResult();
         tx.commit();
         session.close();
         return user;
     }
 
-    public boolean saveUser(User user)
+    public boolean saveUser(Users user)
     {
         try
         {
@@ -61,7 +61,7 @@ public class UserDaoService
         }
     }
 
-    public boolean deleteUser(User user)
+    public boolean deleteUser(Users user)
     {
         try
         {
@@ -79,7 +79,7 @@ public class UserDaoService
         }
     }
 
-    public boolean updateUser(User user)
+    public boolean updateUser(Users user)
     {
         try
         {
@@ -101,7 +101,7 @@ public class UserDaoService
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User");
+        Query query = session.createQuery("from Users");
         List list = query.list();
         tx.commit();
         System.out.println(list);

@@ -1,11 +1,11 @@
 package controller;
 
+import beans.Users;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import beans.User;
 
 //@RequestMapping(value = "index.htm")
 @Controller
@@ -18,7 +18,7 @@ public class IndexController
     }
 
     @RequestMapping(value = "/index", method = RequestMethod.POST)
-    public String processRequest(User user, Model model)
+    public String processRequest(Users user, Model model)
     {
         System.out.println(user);
         model.addAttribute("user", user);

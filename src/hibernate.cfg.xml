@@ -23,8 +23,8 @@
         <mapping resource="beans/Remark.hbm.xml"/>
         <mapping resource="beans/Resort.hbm.xml"/>
         <mapping class="beans.Resort"/>
-        <mapping class="beans.User"/>
-        <mapping resource="beans/User.hbm.xml"/>
+        <mapping class="beans.Users"/>
+        <mapping resource="beans/Users.hbm.xml"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

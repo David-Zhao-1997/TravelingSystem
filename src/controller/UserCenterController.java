@@ -1,6 +1,6 @@
 package controller;
 
-import beans.User;
+import beans.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,10 +40,12 @@ public class UserCenterController {
     @RequestMapping("/UserCenter.htm")
     public String showView(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
-        User userLogined = (User) session.getAttribute("user");
+        Users userLogined = (Users) session.getAttribute("user");
         //若用户session未过期
         if (null != userLogined) {
             model.addAttribute("user_profile", userLogined.getProfile());
+            System.out.println(userLogined.getProfile());
+            System.out.println(userLogined.getState());
             model.addAttribute("login_name", userLogined.getuName());
         }
         //若用户session过期
@@ -66,7 +68,7 @@ public class UserCenterController {
     public String receiveFile(@RequestParam("file") CommonsMultipartFile srcFile, ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         //获取已登陆用户
         HttpSession session = request.getSession();
-        User userLogined = (User) session.getAttribute("user");
+        Users userLogined = (Users) session.getAttribute("user");
         String rootPath = "C:\\Users\\Administrator\\Workspaces\\IDEA\\TravelingSystem\\out\\artifacts\\TravelingSystem_war_exploded\\image\\User\\";
 //        String rootPath = "C:\\Users\\Administrator\\Desktop\\apache-tomcat-7.0.77\\webapps\\ROOT\\";//for remote tomcat
 
