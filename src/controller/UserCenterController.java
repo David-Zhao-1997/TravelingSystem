@@ -40,11 +40,17 @@ public class UserCenterController {
     @RequestMapping("/UserCenter.htm")
     public String showView(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
+        //获取登录界面时创建的session中的user
         Users userLogined = (Users) session.getAttribute("user");
+        String email = userLogined.getEmail();
+        String pass = userLogined.getuPass();
+        //更新session中user，获取登陆期间其他终端设备对用户数据的更新
+        Users LatestUser = userDaoService.validateUser(email, pass);
+        session.setAttribute("user", LatestUser);
         //若用户session未过期
-        if (null != userLogined) {
-            model.addAttribute("user_profile", userLogined.getProfile());
-            model.addAttribute("login_name", userLogined.getuName());
+        if (null != LatestUser) {
+            model.addAttribute("user_profile", LatestUser.getProfile());
+            model.addAttribute("login_name", LatestUser.getuName());
         }
         //若用户session过期
         else {
