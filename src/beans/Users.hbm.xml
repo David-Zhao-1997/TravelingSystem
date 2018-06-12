@@ -4,24 +4,24 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="beans.User" catalog="TravelingSystem" schema="dbo" table="Users">
+    <class name="beans.Users" table="Users" schema="dbo" catalog="TravelingSystem" dynamic-insert="true" dynamic-update="true">
         <id name="email">
-            <column name="Email" length="100" sql-type="varchar(100)"/>
+            <column name="Email" sql-type="varchar(100)" length="100"/>
         </id>
         <property name="uPass">
-            <column name="UPass" length="100" sql-type="varchar(100)"/>
+            <column name="UPass" sql-type="varchar(100)" length="100"/>
         </property>
         <property name="uName">
-            <column name="UName" length="100" not-null="true" sql-type="varchar(100)"/>
+            <column name="UName" sql-type="varchar(100)" length="100" not-null="true"/>
         </property>
         <property name="state">
-            <column name="State" sql-type="int"/>
+            <column name="State" sql-type="int" not-null="false"/>
         </property>
         <property name="dor">
             <column name="DOR" sql-type="datetime"/>
         </property>
         <property name="profile">
-            <column name="profile" length="100" not-null="true" sql-type="varchar(100)"/>
+            <column name="profile" sql-type="varchar(100)" length="100" not-null="false"/>
         </property>
     </class>
 </hibernate-mapping>

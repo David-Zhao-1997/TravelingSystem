@@ -1,6 +1,6 @@
 package controller;
 
-import beans.User;
+import beans.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -40,7 +40,7 @@ public class UserCenterController {
     @RequestMapping("/UserCenter.htm")
     public String showView(ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
-        User userLogined = (User) session.getAttribute("user");
+        Users userLogined = (Users) session.getAttribute("user");
         //若用户session未过期
         if (null != userLogined) {
             model.addAttribute("user_profile", userLogined.getProfile());
@@ -66,7 +66,7 @@ public class UserCenterController {
     public String receiveFile(@RequestParam("file") CommonsMultipartFile srcFile, ModelMap model, HttpServletRequest request, HttpServletResponse response) throws IOException {
         //获取已登陆用户
         HttpSession session = request.getSession();
-        User userLogined = (User) session.getAttribute("user");
+        Users userLogined = (Users) session.getAttribute("user");
         String rootPath = "C:\\Users\\Administrator\\Desktop\\apache-tomcat-7.0.77\\webapps\\ROOT\\";
 
         response.setContentType("text/html;charset=UTF-8");
