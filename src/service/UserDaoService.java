@@ -21,7 +21,7 @@ public class UserDaoService
     {
         Session session = sessionFactory.openSession();
         Transaction tx = session.beginTransaction();
-        Query query = session.createQuery("from User where email = ?");
+        Query query = session.createQuery("from Users where email = ?");
         query.setString(0, email);
         Users user = (Users) query.uniqueResult();
         tx.commit();
