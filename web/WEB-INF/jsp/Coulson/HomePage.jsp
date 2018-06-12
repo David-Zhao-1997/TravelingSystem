@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
-    <link rel="shortcut icon" href="<%=path%>/image/HomePage/favicon.ico"/>
+    <link rel="shortcut icon" type="image/x-icon" href="<%=path%>/image/HomePage/favicon.ico"/>
 
     <%--<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>--%>
     <link href="<%=path%>/css/Coulson/bootstrap.min.css" rel="stylesheet">

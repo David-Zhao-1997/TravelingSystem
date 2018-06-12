@@ -14,7 +14,9 @@ Released : 20130902
 <head>
     <%String path = request.getContextPath();%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>UserCenter</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<%=path%>/image/HomePage/favicon.ico"/>
+
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>
