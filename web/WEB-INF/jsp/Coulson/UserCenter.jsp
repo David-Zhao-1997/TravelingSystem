@@ -14,7 +14,9 @@ Released : 20130902
 <head>
     <%String path = request.getContextPath();%>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
+    <title>User Center</title>
+    <link rel="shortcut icon" href="<%=path%>/image/HomePage/favicon.ico"/>
+
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet"/>
@@ -25,6 +27,9 @@ Released : 20130902
 
 </head>
 <body>
+<a href="HomePage.htm" class="backToHome">
+    <i class="fa fa-twitter"></i>
+</a>
 <div id="page" class="container">
     <div id="header">
         <div id="logo">
@@ -39,17 +44,17 @@ Released : 20130902
         </div>
         <div id="menu">
             <ul>
-                <li class="current_page_item"><a href="#" accesskey="1" title="">Homepage</a></li>
-                <li><a href="#" accesskey="2" title="">Our Clients</a></li>
-                <li><a href="#" accesskey="3" title="">About Us</a></li>
-                <li><a href="#" accesskey="4" title="">Careers</a></li>
+                <li class="current_page_item"><a href="#" accesskey="1" title="">Shopping cart</a></li>
+                <li><a href="#" accesskey="2" title="">Track order</a></li>
+                <li><a href="#" accesskey="3" title="">Favorite</a></li>
+                <li><a href="#" accesskey="4" title="">Settings</a></li>
                 <li><a href="#" accesskey="5" title="">Contact Us</a></li>
             </ul>
         </div>
     </div>
     <div id="main">
         <div id="banner">
-            <img src="images/pic01.jpg" alt="" class="image-full"/>
+            <%--<img src="images/pic01.jpg" alt="" class="image-full"/>--%>
         </div>
         <div id="welcome">
             <div class="title">

@@ -44,8 +44,6 @@ public class UserCenterController {
         //若用户session未过期
         if (null != userLogined) {
             model.addAttribute("user_profile", userLogined.getProfile());
-            System.out.println(userLogined.getProfile());
-            System.out.println(userLogined.getState());
             model.addAttribute("login_name", userLogined.getuName());
         }
         //若用户session过期
