@@ -25,6 +25,7 @@
     </script>
 </head>
 <body>
+    <img src="image/Nick/b_b.jpg"/>
     <form action="HotelPage.htm" method="get">
         <div style="text-align: center;">
         <table style="margin: auto">

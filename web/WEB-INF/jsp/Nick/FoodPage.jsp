@@ -10,8 +10,8 @@
 <html>
 <head>
     <title>FoodPage</title>
-    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/Nick/FoodPage.css"/>
-
+    <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>css/Nick/FoodPage.css"/>
+    <link rel="shortcut icon" href="../../../image/HomePage/favicon.ico"/>
     <script type="text/javascript">
         window.onload = function () {
             var lis = document.getElementsByTagName("li");
@@ -40,13 +40,19 @@
             document.getElementById("Layer1").style.display = "none";
         }
     </script>
+    <%
+        java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(
+                "yyyy-MM-dd HH:mm:ss");
+        java.util.Date currentTime = new java.util.Date();
+        String time = simpleDateFormat.format(currentTime).toString();
+    %>
 </head>
 <body>
 <form id="form1" action="FoodPage.htm" method="post">
     <input type="text" name="fName" placeholder="" style="border-color:sienna; width: 50%;height: 8%;font-size: 25px;position: absolute;left:20%;top:15%"/>
     <input type="submit" value="Search" style="background: sienna;border-color:sienna;color: darkgrey;font-size:25px;width: 13%;height: 8%;position: absolute;left:70%;top:15%"/>
 </form>
-<img src="image/Nick/b1.jpg" style="width: 85%;position: absolute;top: 30%;left:10%">
+<img src="image/Nick/f_b1.jpg" style="width: 85%;position: absolute;top: 30%;left:10%">
 <div id="div1">
     <ul id="ul1">
         <li id="li1">
@@ -74,23 +80,41 @@
             <a href="#">New food list</a>
         </li>
         <li>
-            <a href="#">Hotel</a>
-        </li>
-        <li>
-            <a href="#">Hotel</a>
+            <a href="#">Food recommendation</a>
         </li>
     </ul>
 </div>
 <div id="div3">
     <ul id="ul3">
         <li>
-            <a href="#">Food hot list</a>
+            <a href="HomePage.htm">Home</a>
         </li>
         <li>
-            <a href="#">New food list</a>
+            <a href="HotelPage.htm">Hotel</a>
         </li>
     </ul>
+    <table>
+        <tr>
+            <td>
+                <img src="image/Nick/h_dw.jpg" width="20px" height="20px"/>
+            </td>
+            <td>
+                <%=session.getAttribute("city")%>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                <img src="image/Nick/h_sz.jpg" width="20px" height="20px"/>
+            </td>
+            <td>
+                <%=time%>
+            </td>
+        </tr>
+    </table>
 </div>
+<hr/>
 <div id="div4">
     <table style="width: 100%;align-content: center">
         <c:forEach items="${foodList}" var="food">

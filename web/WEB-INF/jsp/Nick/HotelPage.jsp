@@ -1,3 +1,5 @@
+<%@ page import="beans.User" %>
+<%@ page import="beans.City" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -11,9 +13,9 @@
 <head>
     <meta charset="utf-8">
     <title>HotelPage</title>
-    <link rel="shortcut icon" href="<%=request.getContextPath()%>/image/HomePage/favicon.ico"/>
-    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>/css/Nick/HotelPage.css"/>
-    <script src="<%=request.getContextPath()%>/js/Nick/laydate.js"></script>
+    <link rel="shortcut icon" href="../../../image/HomePage/favicon.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../../css/Nick/HotelPage.css"/>
+    <script src="../../../js/Nick/laydate.js"></script>
     <script type="text/javascript">
         function login() {
             $.ajax({
@@ -51,22 +53,38 @@
              "yyyy-MM-dd HH:mm:ss");
        java.util.Date currentTime = new java.util.Date();
        String time = simpleDateFormat.format(currentTime).toString();
-         %>
+%>
 <body>
-<table>
-    <tr>
-        <td>
-            <div style="width:100%;background: darkgrey" >
-                City|Weather|<%=time%>
-            </div>
-        </td>
-    </tr>
-</table>
+<div>
+         <a href="HomePage.htm"  style="float: right;text-decoration: none;color: black">Home</a>
+        <a href="HotelPage.htm" style="float: right;padding-right: 50px;text-decoration: none;color: black">Hotel</a>
+    <table>
+        <tr>
+            <td>
+                <img src="image/Nick/h_dw.jpg" width="20px" height="20px"/>
+            </td>
+            <td>
+                <%=session.getAttribute("city")%>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+            <td>
+                <img src="image/Nick/h_sz.jpg" width="20px" height="20px"/>
+            </td>
+            <td>
+                <%=time%>
+            </td>
+        </tr>
+    </table>
+</div>
+<hr/>
     <div width="100%" height="100%" style="border-style: dot-dash;border-color: aqua">
         <font style="font-family: Great Vibes,cursive;font-size: 50px;color: aqua">FALCON SPACE</font>
     </div>
     <div class="div1">
-        <img src="image/Nick/h4.jpg" width="100%" height="50%"/>
+        <img src="image/Nick/h_b.jpg" width="100%" height="50%"/>
     </div>
     <div style="height: 100%;height: 8%;background: darkgrey;text-align: center;font-size: 30px">
         The most popular hotels
@@ -74,16 +92,16 @@
     <table style="text-align: center;margin: auto">
         <tr>
             <td style="padding-right: 20px">
-                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+                <img src="image/Nick/h16.jpg" width="300px" height="300px"/>
             </td>
             <td style="padding-right: 20px">
-                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+                <img src="image/Nick/h15.jpg" width="300px" height="300px"/>
             </td>
             <td style="padding-right: 20px">
-                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+                <img src="image/Nick/h3.jpg" width="300px" height="300px"/>
             </td>
             <td style="padding-right: 20px">
-                <img src="image/Nick/h1.jpg" width="300px" height="300px"/>
+                <img src="image/Nick/h18.jpg" width="300px" height="300px"/>
             </td>
         </tr>
         <tr>
@@ -102,8 +120,13 @@
         </tr>
     </table>
 <hr/>
-<div width="200px" height="200px" style="position: absolute;left:10%;top:20%;background: black;opacity: 0.8;width: 300px;height: 270px;">
-    <table style="padding-top: 20px;padding-left: 15px">
+<div style="position: absolute;left:10%;top:20%;background: black;opacity: 0.8;width: 300px;height: 300px;">
+    <table style="padding-top: 20px;padding-left: 15px;color: white;text-align: center">
+        <tr>
+            <td style="padding-bottom: 5px;font-size: 20px">
+                Search Hotel
+            </td>
+        </tr>
         <tr>
             <td>
                 <form id="form1"  action="HotelPage.htm" method="post">
@@ -133,71 +156,66 @@
     </table>
     </form>
 </div>
-
-        <table width="100%">
-            <tr>
-                <td><div style="font-size: 30px">The search results are as follows:</div></td>
-            </tr>
-        </table>
     <hr/>
-        <table style="width: 100%;align-content: center">
-            <c:forEach items="${hotelList}" var="hotel">
-                <tr>
-                    <td style="width: 300px;height: 300px">
-                        <img src="${hotel.pictures}" style="width: 300px;height: 300px"/>
-                    </td>
-                    <td>
-                        <table style="padding-left: 50px;width: 100%">
-                            <tr>
-                                <td style="padding-top: 25px">
-                                    Hotel Name:
-                                </td>
-                                <td style="padding-top: 25px;font-size: 30px">
-                                  ${hotel.hName}
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 25px;">
-                                    Average Price:
-                                </td>
-                                <td style="padding-top: 25px;font-size: 30px;color: orangered">
-                                  ${hotel.avgPrice}$
-                                </td>
-                            </tr>
-                            <tr>
-                                <td style="padding-top: 25px">
-                                    Visits:
-                                </td>
-                                <td style="padding-top: 25px">
-                                  ${hotel.viewCount}
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td style="padding-top: 25px">
-                                  ${hotel.description}
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td>
-                                </td>
-                                <td style="padding-right: 20px">
-                                    <form id="form2" action="BookingPage.htm" method="get">
-                                        <input name="bookHotelID" type="hidden" value="${hotel.hotelId}">
-                                        <input type="submit" value="Book Hotel"  style="background:orangered;width: 262px;min-width: 38px;line-height: 38px;
+    <table style="width: 100%;align-content: center;position: absolute;top: 65
+    %;background: white">
+        <c:forEach items="${hotelList}" var="hotel">
+            <tr>
+                <td style="width: 300px;height: 300px">
+                    <img src="${hotel.pictures}" style="width: 300px;height: 300px"/>
+                </td>
+                <td>
+                    <table style="padding-left: 50px;width: 100%">
+                        <tr>
+                            <td style="padding-top: 25px">
+                                Hotel Name:
+                            </td>
+                            <td style="padding-top: 25px;font-size: 30px">
+                                    ${hotel.hName}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 25px;">
+                                Average Price:
+                            </td>
+                            <td style="padding-top: 25px;font-size: 30px;color: orangered">
+                                    ${hotel.avgPrice}$
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="padding-top: 25px">
+                                Visits:
+                            </td>
+                            <td style="padding-top: 25px">
+                                    ${hotel.viewCount}
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="padding-top: 25px">
+                                    ${hotel.description}
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td style="padding-right: 20px">
+                                <form id="form2" action="BookingPage.htm" method="get">
+                                    <input name="bookHotelID" type="hidden" value="${hotel.hotelId}">
+                                    <input type="submit" value="Book Hotel"  style="background:orangered;width: 262px;min-width: 38px;line-height: 38px;
         font-size: 20px;"/>
-                                    </form>
-                                </td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-        <hr/>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
 </body>
 </html>

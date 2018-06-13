@@ -61,7 +61,7 @@
     font-size: 20px;
     color: black;
     font-family: 'Varela Round', sans-serif;
-    padding-left: 40px;
+    padding-left: 50px;
 }
 #ul2 li a:hover{
     color: palevioletred;
@@ -70,26 +70,24 @@
 #div3{
     width:100%;
     height: 41px;
-    background: #777777;
+    background: white;
     opacity: 0.7;
 }
 
 #div3 ul li {
-    float:left; /* 往左浮动 */
+    float:right; /* 往左浮动 */
     list-style: none;
 }
 #div3 ul li a{
     display:block; /* 将链接设为块级元素 */
     padding:10px 50px; /* 设置内边距 */
-    color:white; /* 设置文字颜色 */
+    color:black; /* 设置文字颜色 */
     text-decoration:none; /* 去掉下划线 */
 }
 #div3 li a:hover {
     background:skyblue; /* 变换背景色 */
     color:black; /* 变换文字颜色 */
 }
-
-
 #div4{
     position: absolute;
     top:100%;

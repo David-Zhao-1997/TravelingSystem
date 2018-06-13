@@ -2,6 +2,7 @@ package controller;
 
 import beans.City;
 import beans.Hotel;
+import beans.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +43,9 @@ public class HotelPageController {
             hotelList.add(hotel);
             model.addAttribute("hotelList", hotelList);
         }
-
+//        User loginName = (User) session.getAttribute("user");
+//        model.addAttribute("login_Name",loginName);
+//        System.out.println(loginName);
         return "Nick/HotelPage";
     }
 
