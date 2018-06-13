@@ -12,7 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Home Page</title>
-    <link rel="shortcut icon" type="image/x-icon" href="<%=path%>/image/HomePage/favicon.ico"/>
+    <link rel="shortcut icon" href="<%=path%>/image/HomePage/favicon.ico"/>
 
     <%--<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>--%>
     <link href="<%=path%>/css/Coulson/bootstrap.min.css" rel="stylesheet">
@@ -103,6 +103,9 @@
                 <div class="col-md-6 col-md-offset-3 text-center">
                     <a href="javascript:" class="learn-more-btn">Start journey</a>
                     <input type="button" class="login-open" value="<c:out value='${login_name}'/>" onclick="window.open('/UserCenter.htm')"/>
+                    <div class="logout">
+                        <a onclick="logout()">Log out</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -637,6 +640,21 @@
                 console.log("error");
             }
         });
+    }
+
+    //用户登出
+    function logout(){
+        var xmlhttp;
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+            {
+                window.location.href='/HomePage.htm';
+            }
+        }
+        xmlhttp.open("GET", "/logout.htm", true);
+        xmlhttp.send();
     }
 </script>
 <script src="<%=path%>/js/Coulson/waypoints.min.js"></script>

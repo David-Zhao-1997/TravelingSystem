@@ -25,7 +25,7 @@
 	height: 40px;
 	border-radius: 6px;
 	position: absolute;
-	top: -257%;
+	top: -256%;
 	left: -50%;
 
 	color: black;
@@ -35,6 +35,28 @@
 }
 .login-open.appear {
 	display: inline-block;
+}
+.logout {
+	display: none;
+	position: absolute;
+	top:-216%;
+	left: -50%;
+	border-radius: 6px;
+}
+.logout.logoutappear {
+	display: inline-block;
+}
+.logout a {
+	padding: 8px 12px;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+	background: darkgray;
+	height: 20px;
+	cursor: pointer;
+}
+.logout a:hover {
+	background: rgba(61, 201, 179, 1);
 }
 .login-mask {
 	z-index: 9998;

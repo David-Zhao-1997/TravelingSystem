@@ -79,7 +79,7 @@ public class UserCenterController {
         request.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         //如果登陆已过期
-        if(null == userLogined){
+        if (null == userLogined) {
             StringBuffer sb = new StringBuffer("<script type=\"text/javascript\" charset=\"UTF-8\">");
             sb.append("window.location.href='/UserCenter.htm';");
             sb.append("</script>");
@@ -89,7 +89,7 @@ public class UserCenterController {
         //如果登陆没过期
         else {
             //若上传的文件为空
-            if(srcFile.getOriginalFilename().equals("")){
+            if (srcFile.getOriginalFilename().equals("")) {
                 StringBuffer sb2 = new StringBuffer("<script type=\"text/javascript\" charset=\"UTF-8\">");
                 sb2.append("alert(\"Invalid uploading, please select one file to upload\");");
                 sb2.append("window.location.href='/UserCenter.htm';");

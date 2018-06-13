@@ -2,6 +2,7 @@ jQuery(document).ready(function(){
     //获取登录注册框组件
     var $user_center = $('.login-open');
     var $login_open = $('.learn-more-btn');
+    var $logout = $('.logout');
     var $login_mask = $('.login-mask');
     var $login_container = $('.login-container');
     var $login_div = $login_container.find('#login');
@@ -134,4 +135,21 @@ jQuery(document).ready(function(){
         $signup_tab.addClass('selected');
         $signup_a.addClass('text-selected');
     }
+
+    //鼠标经过用户名按钮，出现登出div
+    $user_center.hover(function () {
+        $logout.fadeIn(200);
+        // $logout.addClass('logoutappear');
+    },function () {
+        if($logout.hover(function () {
+                $logout.stop();
+                // $logout.addClass('logoutappear');
+            }, function () {
+                $logout.fadeOut(200);
+                // $logout.removeClass('logoutappear');
+            }))
+            $logout.fadeOut(200);
+        // $logout.removeClass('logoutappear');
+    });
+
 });

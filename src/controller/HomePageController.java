@@ -240,4 +240,19 @@ public class HomePageController
 
         return json;
     }
+
+    /**
+    * @Description: 用户退出账号
+    * @Date: 4:07 2018/6/14
+    * @Param: [request]
+    * @return: void
+    **/
+    @RequestMapping("/logout.htm")
+    public void logout(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Users userLogined = (Users) session.getAttribute("user");
+        session.removeAttribute("user");
+        session.removeAttribute("city");
+        System.out.println("用户" + userLogined.getuName() + " " + userLogined.getEmail() + "退出登录");
+    }
 }
