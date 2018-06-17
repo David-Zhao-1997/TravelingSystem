@@ -33,19 +33,18 @@ public class SceneryPageController
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processForm(ModelMap modelMap,String cName,String cityId)
+    public String processForm(ModelMap modelMap,String cName,String rName,String cityId)
     {
         System.out.println(cName);
-//        City city = cityDaoService.getCityListByName(cName).get(0);
-//        modelMap.addAttribute("city",city);
+        City city = cityDaoService.getCityListByName(cName).get(0);
+
+        List<Resort> resortList = resortDaoService.getResortByCityID(city.getCityId());
+        modelMap.addAttribute("resortList",resortList);
         List<City> cityList = cityDaoService.getCityListByName(cName);
-        for(int i=0;i<cityList.size();i++){
-            City city = cityList.get(i);
-            List<Resort> resortList = resortDaoService.getResortByCityID(city.getCityId());
-            modelMap.addAttribute("resortList",resortList);
-        }
         modelMap.addAttribute("cityList",cityList);
 
         return "Frank/CityDetailPage";
     }
+
+
 }

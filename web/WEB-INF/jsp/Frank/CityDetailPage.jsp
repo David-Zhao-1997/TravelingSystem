@@ -29,15 +29,15 @@
             padding:0;
         }
         .title { background: #FFF; border: 1px solid #9DB3C5; padding: 1px; width:90%;margin:20px auto; }
-        .title h1 { line-height: 31px; text-align:center;  background: #2F589C url(th_bg2.gif); background-repeat: repeat-x; background-position: 0 0; color: #FFF; }
+        .title h1 { line-height: 31px; text-align:center;  background: #2F589C ; background-repeat: repeat-x; background-position: 0 0; color: #FFF; }
         .title th, .title td { border: 1px solid #CAD9EA; padding: 5px; }
         table.t1{
             border:1px solid #cad9ea;
             color:#666;
         }
         table.t1 th {
-            background-image: url(th_bg1.gif);
-            background-repeat::repeat-x;
+
+            background-repeat:repeat-x;
             height:30px;
         }
         table.t1 td,table.t1 th{
@@ -84,7 +84,6 @@
         .button2:hover {
             box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
         }
-
     </style>
 </head>
 <body>
@@ -92,47 +91,29 @@
     <div class="title">
         <h1 style="font-size: 20px">Hot Resorts</h1>
     </div>
-    <button class="button1" style="margin-left:200px;margin-top:1px;">By Levels</button>
-    <button class="button2" style="margin-left:700px;margin-top:1px;">By Likes</button>
-    <table  width="90%" id="mytab"  border="1" class="t1">
+
+    <form float="left" action="CityDetailPage.htm/showbylevel.htm" style="margin-left:200px;margin-top:1px;" method="post">
+        <button class="button1" >By Levels</button>
+        <button class="button2" style="margin-left:700px;margin-top:1px;">By Likes</button>
+    </form>
+        <table  width="90%" id="mytab"  border="1" class="t1">
         <thead>
         <th width="10%">Resort Name</th>
         <th width="30%">Descriptions</th>
-        <th width="20%">Price</th>
-        <th width="30%">Picture</th>
+        <th width="10%">Price</th>
+        <th width="40%">Picture</th>
         <th width="10%">Level</th>
         </thead>
-<tr>
         <c:forEach items="${resortList}" var="resort">
+<tr>
             <td>${resort.rName}</td>
             <td>${resort.description}</td>
             <td>${resort.price}</td>
-            <%--<td><img src="${resort.pictures}" style="width:600px;height:400px"/></td>--%>
+            <td><img src="${resort.pictures}" style="width:450px;height:250px"/></td>
             <td>${resort.level}</td>
-        </c:forEach>
 </tr>
-        <tr>
-            <c:forEach items="${resortList}" var="resort">
-                <td>${resort.rName}</td>
-                <td>${resort.description}</td>
-                <td>${resort.price}</td>
-                <%--<td><img src="${resort.pictures}" style="width:600px;height:400px"/></td>--%>
-                <td>${resort.level}</td>
-            </c:forEach>
-        </tr>
-        <tr>
-            <c:forEach items="${resortList}" var="resort">
-                <td>${resort.rName}</td>
-                <td>${resort.description}</td>
-                <td>${resort.price}</td>
-                <%--<td><img src="${resort.pictures}" style="width:600px;height:400px"/></td>--%>
-                <td>${resort.level}</td>
-            </c:forEach>
-        </tr>
-
+        </c:forEach>
     </table>
-
-
 </div>
 </body>
 </html>
