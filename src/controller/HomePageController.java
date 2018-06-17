@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import beans.City;
@@ -248,7 +249,7 @@ public class HomePageController
     * @return: void
     **/
     @RequestMapping("/logout.htm")
-    public void logout(HttpServletRequest request) {
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         Users userLogined = (Users) session.getAttribute("user");
         session.removeAttribute("user");
