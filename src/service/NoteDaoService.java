@@ -133,6 +133,25 @@ public class NoteDaoService
         }
     }
 
+    public List<Note> getAllNotes()
+    {
+        try
+        {
+            Session session = sessionFactory.openSession();
+            Transaction tx = session.beginTransaction();
+            Query query = session.createQuery("from Note");
+            List noteList = query.list();
+            tx.commit();
+            session.close();
+            return noteList;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     public int getUpNumberByNoteID(int resortId)
     {
         try
