@@ -8,9 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -246,22 +243,11 @@ public class HomePageController
     }
 
     @RequestMapping("/logout.htm")
-    public void logout(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void logout(HttpServletRequest request, HttpServletResponse response)  {
         HttpSession session = request.getSession();
         Users userLogined = (Users) session.getAttribute("user");
         session.removeAttribute("user");
         session.removeAttribute("city");
         System.out.println("用户" + userLogined.getuName() + " " + userLogined.getEmail() + "退出登录");
-
-//        response.setContentType("text/html;charset=UTF-8");
-//        request.setCharacterEncoding("UTF-8");
-//        PrintWriter out = response.getWriter();
-//
-//        StringBuffer sb = new StringBuffer("<script type=\"text/javascript\" charset=\"UTF-8\">");
-//        sb.append("window.location.href='/HomePage.htm';");
-//        sb.append("</script>");
-//        out.print(sb.toString());
-//        out.close();
-//        return "Coulson/HomePage";
     }
 }
