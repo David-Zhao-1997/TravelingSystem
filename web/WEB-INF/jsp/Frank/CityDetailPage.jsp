@@ -92,9 +92,9 @@
         <h1 style="font-size: 20px">Hot Resorts</h1>
     </div>
 
-    <form float="left" action="CityDetailPage.htm/showbylevel.htm" style="margin-left:200px;margin-top:1px;" method="post">
+    <form float="left" action="CityDetailPage.htm/showbylevel.htm" style="margin-left:1100px;margin-top:1px;" method="post">
         <button class="button1" >By Levels</button>
-        <button class="button2" style="margin-left:700px;margin-top:1px;">By Likes</button>
+
     </form>
         <table  width="90%" id="mytab"  border="1" class="t1">
         <thead>

@@ -45,7 +45,7 @@
             </tr>
             <tr>
                 <td style="padding-top: 10px">
-                    <input type="submit" value="Submit" onclick="display()"  style="margin-left:260px;background: #009688;width: 80px;height:40px;line-height: 40px;font-size: 18px"/>
+                    <input type="submit" value="Submit" onclick="display()"  style="margin-left:260px;background: #31b0d5;width: 80px;height:40px;line-height: 40px;font-size: 18px"/>
                 </td>
             </tr>
 
