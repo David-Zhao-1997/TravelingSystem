@@ -23,16 +23,17 @@
                     </c:forEach>
                 </ul>
             </li>
-            <li><a href="#">Hot Resorts</a></li>
+            <li><a href="NotesPage.htm">Notes</a></li>
             <li><a href="#">Travelling</a></li>
             <li><a href="#">About Us</a></li>
         </ul>
-
     </form>
-    <div  class="search" id="box">
-        <input type="text" name="search" placeholder="Please Enter the Resorts">
-        <div id="search" >Search</div>
-    </div>
+    <form action="CityDetailPage.htm/search.htm" method="post">
+        <div  class="search" id="box">
+            <input type="text" name="rName"  placeholder="Please Enter the Resorts">
+            <button id="search" type="submit">Search</button>
+        </div>
+    </form>
 </div>
 </body>
 </html>

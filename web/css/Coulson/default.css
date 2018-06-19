@@ -52,6 +52,21 @@
 	{
 		text-decoration: none;
 	}
+
+	.backToHome {
+		position: fixed;
+		top: 5%;
+		right: 2.5%;
+		background: initial;
+	}
+
+	.backToHome i {
+		background: initial;
+	}
+
+	.backToHome i:before {
+			content: "\f015";
+	}
 	
 	.container
 	{

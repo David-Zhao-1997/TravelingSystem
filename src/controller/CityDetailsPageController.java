@@ -25,12 +25,12 @@ public class CityDetailsPageController
     private ResortDaoService resortDaoService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String showView( String cName,ModelMap model)
+   public String showView( String cName,ModelMap model)
     {
         City city = cityDaoService.getCityListByName(cName).get(0);
         model.addAttribute("city",city);
         return "Frank/CityDetailPage";
-    }
+   }
 
     @RequestMapping(method = RequestMethod.POST)
     public String processForm(String cName, ModelMap model)
@@ -39,6 +39,30 @@ public class CityDetailsPageController
         int cityID = cityDaoService.getCityListByName(cName).get(0).getCityId();
         List<Resort> list = resortDaoService.getResortListByCityOrderedByViewCount(cityID);
         model.addAttribute("resortList", list);
+
+        int level = resortDaoService.getResortListByName(cName).get(0).getLevel();
+        List<Resort> resortlist = resortDaoService.getResortListOrderedByLevel();
+        model.addAttribute("resortList",resortlist);
+
         return "Frank/CityDetailPage";
     }
+
+    @RequestMapping(value = "/search.htm",method = RequestMethod.POST)
+    public String search(String rName, ModelMap model)
+    {
+
+        List<Resort> resortlist = resortDaoService.getResortListByName(rName);
+        model.addAttribute("resortList",resortlist);
+
+        return "Frank/CityDetailPage";
+    }
+
+    @RequestMapping(value="/showbylevel.htm",method = RequestMethod.POST)
+    public String showByLevel(ModelMap model)
+    {
+        List<Resort> resortList = resortDaoService.getResortListOrderedByLevel();
+        model.addAttribute("resortList",resortList);
+        return "Frank/CityDetailPage";
+    }
+
 }
