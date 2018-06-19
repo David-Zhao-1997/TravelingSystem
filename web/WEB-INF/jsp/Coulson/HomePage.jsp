@@ -238,86 +238,86 @@
         </div>
     </div>
 </section>
-<section class="features text-center section-padding" id="features">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="arrow">Love what you do, and you'll do it well</h1>
-                <div class="features-wrapper">
-                    <div class="col-md-4 wp2">
-                        <div class="icon">
-                            <i class="fa fa-laptop shadow" style="line-height: 3;"></i>
-                        </div>
-                        <h2>Digital Design</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus.</p>
-                    </div>
-                    <div class="col-md-4 wp2 delay-05s">
-                        <div class="icon">
-                            <i class="fa fa-code shadow" style="line-height: 3;"></i>
-                        </div>
-                        <h2>Web Development</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus.</p>
-                    </div>
-                    <div class="col-md-4 wp2 delay-1s">
-                        <div class="icon">
-                            <i class="fa fa-heart shadow" style="line-height: 3;"></i>
-                        </div>
-                        <h2>Creative Direction</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus.</p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="text-center" id="responsive">
-    <div class="container-fluid nopadding responsive-services">
-        <div class="wrapper">
-            <div class="iphone">
-                <div class="wp3"></div>
-            </div>
-            <div class="fluid-white"></div>
-        </div>
-        <div class="container designs">
-            <div class="row">
-                <div class="col-md-5 col-md-offset-7">
-                    <div id="servicesSlider">
-                        <ul class="slides">
-                            <li>
-                                <h1 class="arrow">Responsive Design Specialists</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
-                                <p>
-                                    Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
-                                <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
-                            </li>
-                            <li>
-                                <h1 class="arrow">Bootstrap Professionals</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>
-                                <p>
-                                    Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>
-                                <p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="swag text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h1>The way you live<span>is <em>the way</em> you live</span></h1>
-                <a href="#portfolio" class="down-arrow-btn"><i style="line-height: 2.5;" class="fa fa-chevron-down"></i></a>
-            </div>
-        </div>
-    </div>
-</section>
+<%--<section class="features text-center section-padding" id="features">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-12">--%>
+                <%--<h1 class="arrow">Love what you do, and you'll do it well</h1>--%>
+                <%--<div class="features-wrapper">--%>
+                    <%--<div class="col-md-4 wp2">--%>
+                        <%--<div class="icon">--%>
+                            <%--<i class="fa fa-laptop shadow" style="line-height: 3;"></i>--%>
+                        <%--</div>--%>
+                        <%--<h2>Digital Design</h2>--%>
+                        <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum--%>
+                            <%--primis in faucibus.</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="col-md-4 wp2 delay-05s">--%>
+                        <%--<div class="icon">--%>
+                            <%--<i class="fa fa-code shadow" style="line-height: 3;"></i>--%>
+                        <%--</div>--%>
+                        <%--<h2>Web Development</h2>--%>
+                        <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum--%>
+                            <%--primis in faucibus.</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="col-md-4 wp2 delay-1s">--%>
+                        <%--<div class="icon">--%>
+                            <%--<i class="fa fa-heart shadow" style="line-height: 3;"></i>--%>
+                        <%--</div>--%>
+                        <%--<h2>Creative Direction</h2>--%>
+                        <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed a lorem quis neque interdum consequat ut sed sem. Duis quis tempor nunc. Interdum et malesuada fames ac ante ipsum--%>
+                            <%--primis in faucibus.</p>--%>
+                    <%--</div>--%>
+                    <%--<div class="clearfix"></div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
+<%--<section class="text-center" id="responsive">--%>
+    <%--<div class="container-fluid nopadding responsive-services">--%>
+        <%--<div class="wrapper">--%>
+            <%--<div class="iphone">--%>
+                <%--<div class="wp3"></div>--%>
+            <%--</div>--%>
+            <%--<div class="fluid-white"></div>--%>
+        <%--</div>--%>
+        <%--<div class="container designs">--%>
+            <%--<div class="row">--%>
+                <%--<div class="col-md-5 col-md-offset-7">--%>
+                    <%--<div id="servicesSlider">--%>
+                        <%--<ul class="slides">--%>
+                            <%--<li>--%>
+                                <%--<h1 class="arrow">Responsive Design Specialists</h1>--%>
+                                <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>--%>
+                                <%--<p>--%>
+                                    <%--Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>--%>
+                                <%--<p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>--%>
+                            <%--</li>--%>
+                            <%--<li>--%>
+                                <%--<h1 class="arrow">Bootstrap Professionals</h1>--%>
+                                <%--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus pulvinar imperdiet. Praesent non adipiscing libero. </p>--%>
+                                <%--<p>--%>
+                                    <%--Mauris ultrices odio vitae nulla ultrices iaculis. Nulla rhoncus odio eu lectus faucibus facilisis. Maecenas ornare augue vitae sollicitudin accumsan. </p>--%>
+                                <%--<p>Etiam eget libero et erat eleifend consectetur a nec lectus. Sed id tellus lorem. Suspendisse sed venenatis odio, quis lobortis eros.</p>--%>
+                            <%--</li>--%>
+                        <%--</ul>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
+<%--<section class="swag text-center">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-8 col-md-offset-2">--%>
+                <%--<h1>The way you live<span>is <em>the way</em> you live</span></h1>--%>
+                <%--<a href="#portfolio" class="down-arrow-btn"><i style="line-height: 2.5;" class="fa fa-chevron-down"></i></a>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
 <section class="portfolio text-center section-padding" id="portfolio">
     <div class="container">
         <div class="row">
