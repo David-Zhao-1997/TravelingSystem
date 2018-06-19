@@ -14,6 +14,12 @@
 	font-size: 27px;
 	font-weight: bold;
 }
+@media (min-device-width : 375px) and (max-device-width : 667px){
+	.login-open {
+		top: -296%;
+		left: 15%;
+	}
+}
 .login-open {
 	/*background-image: url("../img/homepage/login.png");*/
 	/*background-size: 100%;*/
