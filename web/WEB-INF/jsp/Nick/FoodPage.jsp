@@ -39,6 +39,7 @@
             document.getElementById("Layer1").innerHTML = "";
             document.getElementById("Layer1").style.display = "none";
         }
+
     </script>
     <%
         java.text.SimpleDateFormat simpleDateFormat = new java.text.SimpleDateFormat(
@@ -115,7 +116,52 @@
     </table>
 </div>
 <hr/>
-<div id="div4">
+<div style="background: #8a6d3b;width: 100%;font-size: 30px;text-align: center;position: absolute;top: 100%;">
+    Food hot list
+</div>
+<table width="100%" style="position: absolute;top: 110%;text-align: center">
+    <tr>
+        <td>
+            <img src="image/Nick/f1.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f3.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f4.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f5.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f6.jpg" style="width: 200px;height: 200px"/>
+        </td>
+    </tr>
+</table>
+<div style="background: #8a6d3b;width: 100%;font-size: 30px;text-align: center;position: absolute;top: 145%;">
+    Food recommendation
+</div>
+<table width="100%" style="position: absolute;top: 155%;text-align: center">
+    <tr>
+        <td>
+            <img src="image/Nick/f5.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f7.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f8.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f9.jpg" style="width: 200px;height: 200px"/>
+        </td>
+        <td>
+            <img src="image/Nick/f10.jpg" style="width: 200px;height: 200px"/>
+        </td>
+    </tr>
+</table>
+
+<div id="div4" style="position: absolute;top:190%;background: black;opacity: 0.8;width: 100%">
     <table style="width: 100%;align-content: center">
         <c:forEach items="${foodList}" var="food">
             <tr>
@@ -123,7 +169,7 @@
                     <img src="${food.pictures}" style="width: 300px;height: 300px"/>
                 </td>
                 <td>
-                    <table style="padding-left: 50px;width: 100%">
+                    <table style="padding-left: 50px;width: 100%;color: white">
                         <tr>
                             <td style="padding-top: 25px">
                                  Name:
@@ -162,8 +208,8 @@
                             <td>
                             </td>
                             <td style="padding-right: 20px">
-                                <form id="form2" action="BookingPage.htm" method="get">
-                                    <input name="bookFoodID" type="hidden" value="${food.fName}">
+                                <form id="form2" action="BookFoodPage.htm" method="get">
+                                    <input name="bookFName" type="hidden" value="${food.fName}">
                                     <input type="submit" value="Book"  style="background:orangered;width: 262px;min-width: 38px;line-height: 38px;
         font-size: 20px;"/>
                                 </form>
@@ -177,5 +223,8 @@
     <hr/>
 </div>
 <div id="Layer1" style="position:absolute;top: 40%;left: 40%;"></div>
+
+
+
 </body>
 </html>

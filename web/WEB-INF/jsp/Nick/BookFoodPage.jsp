@@ -1,40 +1,27 @@
 <%--
   Created by IntelliJ IDEA.
   User: 小龍ge
-  Date: 2018/6/5
-  Time: 10:24
+  Date: 2018/6/17
+  Time: 20:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>BookingPage</title>
-    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>/css/Nick/BookingPage.css"/>
-    <script src="<%=request.getContextPath()%>/js/Nick/laydate.js"></script>
-    <script type="text/javascript">
-        laydate.render({
-            elem: '#test1-1'
-            ,lang: 'en'
-        });
-        laydate.render({
-            elem: '#test1' //指定元素
-        });
-        function display_message() {
-            alert("Your order has been submitted");
-        }
-    </script>
+    <title>Title</title>
+    <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>/css/Nick/BookFoodPage.css"/>
 </head>
 <body>
-    <img src="image/Nick/b_b.jpg" width="100%"/>
-    <form action="HotelPage.htm" method="get">
-        <div style="position: absolute;left:35%;top:20%;background: black;opacity: 0.8;width: 300px;height: 550px;padding-left: 35px">
+<img src="image/Nick/f_b.jpg" width="100%"/>
+<form action="FoodPage.htm" method="get">
+    <div style="position: absolute;left:35%;top:20%;background: black;opacity: 0.8;width: 300px;height: 500px;padding-left: 35px">
         <table style="margin: auto">
             <tr>
                 <td style="padding-top: 15px;text-align: center">
-                    <img src="${hotel.pictures}" width="200px"/>
+                    <img src="${food.pictures}" width="200px"/>
                 </td>
                 <td style="padding-top: 15px">
-                    ${hotel.hName}
+                    ${food.fName}
                 </td>
             </tr>
             <tr>
@@ -54,12 +41,7 @@
             </tr>
             <tr>
                 <td style="padding-top: 15px">
-                    <input type="text" class="demo-input" placeholder="Check-in time" id="test1-1"/>
-                </td>
-            </tr>
-            <tr>
-                <td  style="padding-top: 15px">
-                    <input type="text" class="demo-input" placeholder="Check-out time" id="test1">
+                    <input type="text" class="demo-input" placeholder="Scheduled time" id="test1-1"/>
                 </td>
             </tr>
             <tr>
@@ -68,7 +50,7 @@
                 </td>
             </tr>
         </table>
-        </div>
-    </form>
+    </div>
+</form>
 </body>
 </html>

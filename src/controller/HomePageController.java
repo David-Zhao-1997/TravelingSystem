@@ -1,6 +1,7 @@
 package controller;
 
 import beans.Food;
+import beans.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -15,7 +16,6 @@ import javax.servlet.http.HttpSession;
 
 import beans.City;
 import beans.Hotel;
-import beans.User;
 import service.CityDaoService;
 import service.FoodDaoService;
 import service.HotelDaoService;
@@ -96,7 +96,7 @@ public class HomePageController
         }else {
             //获取已登陆用户信息
             changeLoginState("false", "true", "false", "false", model);
-            User userLogined = (User) session.getAttribute("user");
+            Users userLogined = (Users) session.getAttribute("user");
             model.addAttribute("login_name", userLogined.getuName());
             System.out.println(userLogined.getuName());
         }
@@ -136,11 +136,11 @@ public class HomePageController
      * @return: java.lang.String
      **/
     @RequestMapping("/login.htm")
-    public String loginForm(User user, ModelMap model, HttpServletRequest request)
+    public String loginForm(Users user, ModelMap model, HttpServletRequest request)
     {
         System.out.println(user.getEmail() + user.getuPass());
 
-        User userLogined = userDaoService.validateUser(user.getEmail(), user.getuPass());
+        Users userLogined = userDaoService.validateUser(user.getEmail(), user.getuPass());
         //若登陆失败
         if (userLogined == null)
         {
@@ -180,7 +180,7 @@ public class HomePageController
      * @return: java.lang.String
      **/
     @RequestMapping("/signup.htm")
-    public String signupForm(User user, ModelMap model, HttpServletRequest request)
+    public String signupForm(Users user, ModelMap model, HttpServletRequest request)
     {
         System.out.println(user.getEmail() + user.getuName() + user.getuPass());
 

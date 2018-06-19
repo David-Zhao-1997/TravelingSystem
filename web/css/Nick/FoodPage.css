@@ -88,8 +88,3 @@
     background:skyblue; /* 变换背景色 */
     color:black; /* 变换文字颜色 */
 }
-#div4{
-    position: absolute;
-    top:100%;
-    left: 10%;
-}

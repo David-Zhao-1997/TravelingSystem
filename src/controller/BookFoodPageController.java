@@ -6,34 +6,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import service.FoodDaoService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "FoodPage.htm")
-public class FoodPageController
-{
+@RequestMapping(value="BookFoodPage.htm")
+public class BookFoodPageController {
     @Autowired
     private FoodDaoService foodDaoService;
-
     @RequestMapping(method = RequestMethod.GET)
-    public String showView(ModelMap model,HttpServletRequest request)
-    {
-        return "Nick/FoodPage";
+    public String showView( ModelMap modelMap){
+        Food food = foodDaoService.getFoodByID(2);
+        modelMap.addAttribute("food",food);
+        return "Nick/BookFoodPage";
     }
-
     @RequestMapping(method = RequestMethod.POST)
-    public String processForm(String fName,ModelMap model,HttpServletRequest request)
-    {
-        List<Food> foodList = foodDaoService.getFoodListByName(fName);
-        model.addAttribute("foodList",foodList);
+    public String proccessForm(String foodID,ModelMap modelMap){
         return "Nick/FoodPage";
     }
 }
-
-

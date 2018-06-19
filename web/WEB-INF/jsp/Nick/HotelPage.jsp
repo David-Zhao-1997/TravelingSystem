@@ -1,4 +1,4 @@
-<%@ page import="beans.User" %>
+<%@ page import="beans.Users" %>
 <%@ page import="beans.City" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
@@ -17,25 +17,7 @@
     <link rel="stylesheet" type="text/css" href="../../../css/Nick/HotelPage.css"/>
     <script src="../../../js/Nick/laydate.js"></script>
     <script type="text/javascript">
-        function login() {
-            $.ajax({
-                //几个参数需要注意一下
-                type: "POST",//方法类型
-                dataType: "json",//预期服务器返回的数据类型
-                url: "/users/login" ,//url
-                data: $('#form1').serialize(),
-                success: function (result) {
-                    console.log(result);//打印服务端返回的数据(调试用)
-                    if (result.resultCode == 200) {
-                        alert("SUCCESS");
-                    }
-                    ;
-                },
-                error : function() {
-                    alert("异常！");
-                }
-            });
-        }
+
         lay('#version').html('-v'+ laydate.v);
         laydate.render({
             elem: '#test1-1'
@@ -55,9 +37,15 @@
        String time = simpleDateFormat.format(currentTime).toString();
 %>
 <body>
-<div>
-         <a href="HomePage.htm"  style="float: right;text-decoration: none;color: black">Home</a>
-        <a href="HotelPage.htm" style="float: right;padding-right: 50px;text-decoration: none;color: black">Hotel</a>
+<div id="div3">
+    <ul id="ul3">
+        <li>
+            <a href="HomePage.htm">Home</a>
+        </li>
+        <li>
+            <a href="FoodPage.htm">Food</a>
+        </li>
+    </ul>
     <table>
         <tr>
             <td>
@@ -83,43 +71,36 @@
     <div width="100%" height="100%" style="border-style: dot-dash;border-color: aqua">
         <font style="font-family: Great Vibes,cursive;font-size: 50px;color: aqua">FALCON SPACE</font>
     </div>
-    <div class="div1">
+    <div>
         <img src="image/Nick/h_b.jpg" width="100%" height="50%"/>
     </div>
-    <div style="height: 100%;height: 8%;background: darkgrey;text-align: center;font-size: 30px">
-        The most popular hotels
-    </div>
-    <table style="text-align: center;margin: auto">
+
+    <table style="position: absolute;right: 10px;top:70%">
+        <th>
+            Recommended Hotel
+        </th>
         <tr>
-            <td style="padding-right: 20px">
-                <img src="image/Nick/h16.jpg" width="300px" height="300px"/>
-            </td>
-            <td style="padding-right: 20px">
-                <img src="image/Nick/h15.jpg" width="300px" height="300px"/>
-            </td>
-            <td style="padding-right: 20px">
-                <img src="image/Nick/h3.jpg" width="300px" height="300px"/>
-            </td>
-            <td style="padding-right: 20px">
-                <img src="image/Nick/h18.jpg" width="300px" height="300px"/>
+            <td>
+                <img src="image/Nick/h16.jpg" width="200px" height="200px"/>
             </td>
         </tr>
         <tr>
             <td>
-                <center>Hotel Name</center>
+                <img src="image/Nick/h15.jpg" width="200px" height="200px"/>
             </td>
+        </tr>
+        <tr>
             <td>
-                <center>Hotel Name</center>
+                <img src="image/Nick/h3.jpg" width="200px" height="200px"/>
             </td>
+        </tr>
+        <tr>
             <td>
-                <center>Hotel Name</center>
-            </td>
-            <td>
-                <center>Hotel Name</center>
+                <img src="image/Nick/h18.jpg" width="200px" height="00px"/>
             </td>
         </tr>
     </table>
-<hr/>
+
 <div style="position: absolute;left:10%;top:20%;background: black;opacity: 0.8;width: 300px;height: 300px;">
     <table style="padding-top: 20px;padding-left: 15px;color: white;text-align: center">
         <tr>
@@ -130,7 +111,7 @@
         <tr>
             <td>
                 <form id="form1"  action="HotelPage.htm" method="post">
-                    <select  name="cityId" class="demo-input">
+                    <select name="cityId" style="width: 262px;height: 40px">
                         <option value="">Choose city</option>
                         <c:forEach items="${cityList}" var="city">
                             <option value="${city.cityId}">${city.cName}</option>
@@ -140,12 +121,12 @@
         </tr>
         <tr>
             <td>
-                <input type="text" class="demo-input" placeholder="Check-in time" id="test1-1">
+                <input type="text" style="width: 262px;height: 40px" placeholder="Check-in time" id="test1-1">
             </td>
         </tr>
         <tr>
             <td  style="padding-top: 15px">
-                <input type="text" class="demo-input" placeholder="Check-out time" id="test1">
+                <input type="text" style="width: 262px;height: 40px" placeholder="Check-out time" id="test1">
             </td>
         </tr>
         <tr>
@@ -158,15 +139,14 @@
 </div>
     <hr/>
 
-    <table style="width: 100%;align-content: center;position: absolute;top: 65
-    %;background: white">
+    <table border="1px" style="width: 80%;border-style: hidden; align-content: center;position: absolute;top: 70%;background: white;">
         <c:forEach items="${hotelList}" var="hotel">
             <tr>
-                <td style="width: 300px;height: 300px">
+                <td style="width: 300px;height: 300px;">
                     <img src="${hotel.pictures}" style="width: 300px;height: 300px"/>
                 </td>
                 <td>
-                    <table style="padding-left: 50px;width: 100%">
+                    <table style="padding-left: 50px;width: 100%;">
                         <tr>
                             <td style="padding-top: 25px">
                                 Hotel Name:
