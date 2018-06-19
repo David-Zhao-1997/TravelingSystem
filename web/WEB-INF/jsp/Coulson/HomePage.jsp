@@ -61,6 +61,40 @@
             storage.setItem("email", $email_input_signup);
         }
     </script>
+    <style>
+        @media screen and (max-width : 768px){
+            .login-open {
+                top: -296%;
+                left: 15%;
+            }
+            .login-container {
+                left: 85%;
+                width: 340px;
+            }
+            .login-phoneno-input {
+                margin-left: 45px;
+            }
+            .login-password-input {
+                margin-left: 5px;
+            }
+            .button-login {
+                margin-left: 8%;
+            }
+            .signup-phoneno-input {
+                margin-left: 50px;
+            }
+            .signup-email-input {
+                margin-left: 0;
+            }
+            .signup-password-input {
+                margin-left: 10px;
+            }
+            .button-signup {
+                margin-left: 8%;
+                margin-top: 20px;
+            }
+        }
+    </style>
 </head>
 <body id="top" onload="loading()">
 <%--<div class="home-image" style="height:420px; width:100%; background-image:url(/image/HomePage/1.jpg);">--%>
