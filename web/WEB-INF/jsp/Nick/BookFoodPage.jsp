@@ -8,8 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>BookFoodPage</title>
     <link rel="stylesheet"  type="text/css"  href="<%=request.getContextPath()%>/css/Nick/BookFoodPage.css"/>
+    <script src="<%=request.getContextPath()%>/js/Nick/laydate.js"></script>
+    <script type="text/javascript">
+        laydate.render({
+            elem: '#test1-1'
+            ,lang: 'en'
+        });
+        laydate.render({
+            elem: '#test1' //指定元素
+        });
+        function display_message() {
+            alert("Your order has been submitted");
+        }
+    </script>
 </head>
 <body>
 <img src="image/Nick/f_b.jpg" width="100%"/>
