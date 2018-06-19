@@ -12,11 +12,11 @@ public class SessionListener implements HttpSessionListener {
 
     @Override
     public void sessionCreated(HttpSessionEvent httpSessionEvent) {
-        System.out.println("创建session");
+        System.out.println("SESSION CREATED");
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent httpSessionEvent) {
-        System.out.println("登陆过期");
+        System.out.println("LOGIN EXPIRED");
     }
 }
